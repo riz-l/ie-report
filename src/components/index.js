@@ -1,2 +1,2 @@
-// Import: Home
-// export { default as CheckoutSteps } from "./CheckoutSteps/CheckoutSteps.component";
+// Import: Header
+export { default as Header } from "./Header/Header.component";
