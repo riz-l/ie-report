@@ -5,12 +5,15 @@ import React from "react";
 // Import: Elements
 import { Container, Wrapper } from "./Report.elements";
 
+// Import: Components, SubPages
+import { PatientReport } from "../subPages";
+
 // Page: Report
 export default function Report() {
   return (
     <Container>
       <Wrapper>
-        <h1>Report</h1>
+        <PatientReport />
       </Wrapper>
     </Container>
   );
