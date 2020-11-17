@@ -6,6 +6,7 @@ import { Container, Heading, Section } from "./PatientReport.elements";
 
 // Import: Components
 import {
+  FieldData,
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
@@ -25,6 +26,7 @@ export default function PatientReport() {
         </Heading>
         <HeadingSecondary text="This is a Heading Secondary" />
         <HeadingTertiary text="This is a Heading Tertiary" />
+        <FieldData field="This is a field" data="This is data" />
       </Section>
 
       <Section>
@@ -37,6 +39,7 @@ export default function PatientReport() {
         </Heading>
         <HeadingSecondary text="This is a Heading Secondary" />
         <HeadingTertiary text="This is a Heading Tertiary" />
+        <FieldData field="This is a field" data="This is data" />
       </Section>
     </Container>
   );
