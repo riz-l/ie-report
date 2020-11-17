@@ -22,7 +22,7 @@ import {
 export default function Notes() {
   return (
     <Container>
-     {/* Presenting Complaint */}
+      {/* Presenting Complaint */}
       <Section>
         <Heading>
           <HeadingPrimary
@@ -43,7 +43,7 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* History of Presenting Complaint */}
+      {/* History of Presenting Complaint */}
       <Section>
         <Heading>
           <HeadingPrimary
@@ -64,7 +64,7 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* Previous Medical History */}
+      {/* Previous Medical History */}
       <Section>
         <Heading>
           <HeadingPrimary
@@ -85,7 +85,7 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* Social History */}
+      {/* Social History */}
       <Section>
         <Heading>
           <HeadingPrimary
@@ -106,7 +106,7 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* On Examination */}
+      {/* On Examination */}
       <Section>
         <Heading>
           <HeadingPrimary
@@ -127,12 +127,12 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* Plan/Treatment */}
+      {/* Plan / Treatment */}
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Plan/Treatment"
+            text="Plan / Treatment"
             padding="0.6rem"
           />
         </Heading>
@@ -148,7 +148,7 @@ export default function Notes() {
         </ReportContainer>
       </Section>
 
-     {/* Additional Information */}
+      {/* Additional Information */}
       <Section>
         <Heading>
           <HeadingPrimary
