@@ -28,7 +28,7 @@ export default function Header() {
             {!isDropdownOpen ? <DropdownIcon /> : <UpArrowIcon />}
           </DropdownButton>
 
-          <span>Patient Report</span>
+          <span>Lorenzo Report</span>
         </Logo>
 
         <Dropdown isDropdownOpen={isDropdownOpen} />
