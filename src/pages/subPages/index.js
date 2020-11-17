@@ -1,3 +1,6 @@
+// Export: DiagnosisOfDeath
+export { default as DiagnosisOfDeath } from "./DiagnosisOfDeath/DiagnosisOfDeath.component";
+
 // Export: Ecg
 export { default as Ecg } from "./Ecg/Ecg.component";
 
