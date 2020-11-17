@@ -1,3 +1,9 @@
+// Export: Ecg
+export { default as Ecg } from "./Ecg/Ecg.component";
+
+// Export: Media
+export { default as Media } from "./Media/Media.component";
+
 // Export: Notes
 export { default as Notes } from "./Notes/Notes.component";
 
