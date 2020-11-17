@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background: #ebebeb;
+  background: #f5f5f5;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -32,3 +32,11 @@ code {
     monospace;
 }
 /*#endregion /DEFAULT: React */
+
+/*#region Native Styling */
+a {
+  color: #000000;
+  outline: none;
+  text-decoration: none;
+}
+/*#endregion /Native Styling */
