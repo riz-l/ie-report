@@ -29,49 +29,53 @@ export default function ReportHeader() {
           <ReportIcon />
           <li>Report</li>
         </NavLink>
+
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
             transition: "background 150ms linear",
           }}
-          to="/"
+          to="/notes"
           exact
         >
           <NotesIcon />
           <li>Notes</li>
         </NavLink>
+
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
             transition: "background 150ms linear",
           }}
-          to="/"
+          to="/media"
           exact
         >
           <MediaIcon />
           <li>Media</li>
         </NavLink>
+
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
             transition: "background 150ms linear",
           }}
-          to="/"
+          to="/ecg"
           exact
         >
           <EcgIcon />
           <li>ECG</li>
         </NavLink>
+
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
             transition: "background 150ms linear",
           }}
-          to="/"
+          to="/diagnosisofdeath"
           exact
         >
           <DodIcon />

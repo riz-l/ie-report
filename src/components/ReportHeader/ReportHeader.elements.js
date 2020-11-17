@@ -6,7 +6,7 @@ export const Container = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: pink;
+  background: #ffffff;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,7 +15,6 @@ export const Container = styled.div`
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
-  padding: 0.1rem;
   width: 100%;
   min-width: 100%;
 `;
@@ -35,12 +34,18 @@ export const Options = styled.ul`
   width: 100%;
 
   & a {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-top: 3px solid transparent;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
     padding: 0.8rem 2rem;
 
     &:hover {
