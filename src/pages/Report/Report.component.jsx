@@ -7,7 +7,7 @@ import { Container, Wrapper } from "./Report.elements";
 
 // Import: Components, SubPages
 import { ReportHeader } from "../../components";
-import { PatientReport } from "../subPages";
+import { PatientReport, Notes } from "../subPages";
 
 // Page: Report
 export default function Report() {
@@ -17,8 +17,12 @@ export default function Report() {
         <ReportHeader />
 
         <Switch>
-          <Route patch="/" exact>
+          <Route path="/" exact>
             <PatientReport />
+          </Route>
+
+          <Route path="/notes">
+            <Notes />
           </Route>
         </Switch>
       </Wrapper>
