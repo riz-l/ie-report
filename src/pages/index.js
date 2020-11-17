@@ -1,2 +1,2 @@
-// Import: Home
-// export { default as CheckoutSteps } from "./CheckoutSteps/CheckoutSteps.component";
+// Export: Report
+export { default as Report } from "./Report/Report.component";

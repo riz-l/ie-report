@@ -1,8 +1,20 @@
-// Import: Dropdown
+// Export: Dropdown
 export { default as Dropdown } from "./Dropdown/Dropdown.component";
 
-// Import: Header
+// Export: Header
 export { default as Header } from "./Header/Header.component";
 
-// Import: Report Header
+// Export: HeadingPrimary
+export { default as HeadingPrimary } from "./HeadingPrimary/HeadingPrimary.component";
+
+// Export: HeadingSecondary
+export { default as HeadingSecondary } from "./HeadingSecondary/HeadingSecondary.component";
+
+// Export: HeadingTertiary
+export { default as HeadingTertiary } from "./HeadingTertiary/HeadingTertiary.component";
+
+// Export: Icon
+export { default as Icon } from "./Icon/Icon.component";
+
+// Import: ReportHeader
 export { default as ReportHeader } from "./ReportHeader/ReportHeader.component";

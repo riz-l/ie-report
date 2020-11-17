@@ -1,8 +1,9 @@
 // Import: Dependencies
 import React from "react";
 
-// Import: Components
+// Import: Components, Pages
 import { Header, ReportHeader } from "./components";
+import { Report } from "./pages";
 
 // Component: App
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
     <>
       <Header />
       <ReportHeader />
+      <Report />
     </>
   );
 }
