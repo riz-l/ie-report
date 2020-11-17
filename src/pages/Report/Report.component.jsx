@@ -7,7 +7,13 @@ import { Container, Wrapper } from "./Report.elements";
 
 // Import: Components, SubPages
 import { ReportHeader } from "../../components";
-import { Ecg, Media, Notes, PatientReport } from "../subPages";
+import {
+  DiagnosisOfDeath,
+  Ecg,
+  Media,
+  Notes,
+  PatientReport,
+} from "../subPages";
 
 // Page: Report
 export default function Report() {
@@ -30,6 +36,10 @@ export default function Report() {
 
           <Route path="/ecg">
             <Ecg />
+          </Route>
+
+          <Route path="/diagnosisofdeath">
+            <DiagnosisOfDeath />
           </Route>
         </Switch>
       </Wrapper>
