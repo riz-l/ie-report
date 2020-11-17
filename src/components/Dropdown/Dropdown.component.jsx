@@ -9,10 +9,10 @@ import {
   Container,
   IconContainer,
   Layout,
+  PatientContainer,
   PatientDetails,
   PatientName,
   PatientOther,
-  PatientContainer,
   PatientWrapper,
 } from "./Dropdown.elements";
 

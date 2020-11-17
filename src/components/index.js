@@ -1,5 +1,5 @@
-// Import: Dropdown
+// Export: Dropdown
 export { default as Dropdown } from "./Dropdown/Dropdown.component";
 
-// Import: Header
+// Export: Header
 export { default as Header } from "./Header/Header.component";
