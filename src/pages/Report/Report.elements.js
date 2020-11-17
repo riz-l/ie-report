@@ -9,7 +9,7 @@ export const Container = styled.main`
 
 // Element: Wrapper
 export const Wrapper = styled.div`
+  background: #ebebeb;
   height: 100%;
   width: 100%;
-  background: red;
 `;
