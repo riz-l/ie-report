@@ -15,3 +15,6 @@ export { default as HeadingTertiary } from "./HeadingTertiary/HeadingTertiary.co
 
 // Export: Icon
 export { default as Icon } from "./Icon/Icon.component";
+
+// Import: ReportHeader
+export { default as ReportHeader } from "./ReportHeader/ReportHeader.component";
