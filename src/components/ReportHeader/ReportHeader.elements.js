@@ -1,12 +1,12 @@
 // Import: Dependencies
 import styled from "styled-components/macro";
 
-// Styled: ReportHeaderContainer
-export const ReportHeaderContainer = styled.div`
+// Styled: Container
+export const Container = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: red;
+  background: pink;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,13 +15,13 @@ export const ReportHeaderContainer = styled.div`
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
-  min-width: 100%;
   padding: 0.1rem;
   width: 100%;
+  min-width: 100%;
 `;
 
-// Styled: ReportHeaderOptions
-export const ReportHeaderOptions = styled.ul`
+// Styled: Options
+export const Options = styled.ul`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -54,12 +54,14 @@ export const ReportHeaderOptions = styled.ul`
         transition: fill 150ms linear;
       }
     }
+
     & svg {
       fill: #414141;
       height: 30px;
       transition: fill 150ms linear;
       width: 46px;
     }
+
     & li {
       color: #414141;
       display: inline;

@@ -3,10 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Import: Elements
-import {
-  ReportHeaderContainer,
-  ReportHeaderOptions,
-} from "./ReportHeader.elements";
+import { Container, Options } from "./ReportHeader.elements";
 
 // Import: Assets
 import { ReactComponent as ReportIcon } from "../../assets/img/icons/report-icon.svg";
@@ -18,8 +15,8 @@ import { ReactComponent as DodIcon } from "../../assets/img/icons/dod-icon.svg";
 // Component: ReportHeader
 export default function ReportHeader() {
   return (
-    <ReportHeaderContainer>
-      <ReportHeaderOptions>
+    <Container>
+      <Options>
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
@@ -80,7 +77,7 @@ export default function ReportHeader() {
           <DodIcon />
           <li>DoD</li>
         </NavLink>
-      </ReportHeaderOptions>
-    </ReportHeaderContainer>
+      </Options>
+    </Container>
   );
 }
