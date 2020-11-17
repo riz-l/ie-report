@@ -19,6 +19,9 @@ export { default as HeadingTertiary } from "./HeadingTertiary/HeadingTertiary.co
 // Export: Icon
 export { default as Icon } from "./Icon/Icon.component";
 
+// Export: Loader
+export {default as LoadingSpinner} from "./Loader/Loader.component";
+
 // Import: ReportContainer
 export { default as ReportContainer } from "./ReportContainer/ReportContainer.component";
 

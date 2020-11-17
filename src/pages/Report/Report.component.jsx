@@ -15,7 +15,6 @@ export default function Report() {
     <Container>
       <Wrapper>
         <ReportHeader />
-
         <Switch>
           <Route path="/" exact>
             <PatientReport />
