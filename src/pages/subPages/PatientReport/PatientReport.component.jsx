@@ -2,7 +2,16 @@
 import React from "react";
 
 // Import: Elements
-import { Container, Heading, Section } from "./PatientReport.elements";
+import {
+  ColumnOne,
+  ColumnTwo,
+  ColumnThree,
+  Container,
+  Grid,
+  Heading,
+  Render,
+  Section,
+} from "./PatientReport.elements";
 
 // Import: Components
 import {
@@ -10,6 +19,7 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  ReportContainer,
 } from "../../../components";
 
 // SubPage: PatientReport
@@ -19,27 +29,29 @@ export default function PatientReport() {
       <Section>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-file-medical-alt"
-            text="This is a Heading Primary"
+            icon="fas fa-sticky-note"
+            text="Additional Information"
             padding="0.6rem"
           />
         </Heading>
-        <HeadingSecondary text="This is a Heading Secondary" />
-        <HeadingTertiary text="This is a Heading Tertiary" />
-        <FieldData field="This is a field" data="This is data" />
-      </Section>
 
-      <Section>
-        <Heading>
-          <HeadingPrimary
-            icon="fas fa-file-medical-alt"
-            text="This is a Heading Primary"
-            padding="0.6rem"
-          />
-        </Heading>
-        <HeadingSecondary text="This is a Heading Secondary" />
-        <HeadingTertiary text="This is a Heading Tertiary" />
-        <FieldData field="This is a field" data="This is data" />
+        <ReportContainer>
+          <Render>
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Test Field" data="Test Data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="Test Field" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="Test Field" data="Test Data" />
+              </ColumnThree>
+            </Grid>
+          </Render>
+        </ReportContainer>
       </Section>
     </Container>
   );

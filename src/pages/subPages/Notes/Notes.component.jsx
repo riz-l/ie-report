@@ -17,6 +17,8 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  HeadingSecondary,
+  HeadingTertiary,
   ReportContainer,
 } from "../../../components";
 
