@@ -22,6 +22,9 @@ export { default as Icon } from "./Icon/Icon.component";
 // Export: Loader
 export { default as Loader } from "./Loader/Loader.component";
 
+// Import: PatientTile
+export { default as PatientTile } from "./PatientTile/PatientTile.component";
+
 // Import: ReportContainer
 export { default as ReportContainer } from "./ReportContainer/ReportContainer.component";
 
