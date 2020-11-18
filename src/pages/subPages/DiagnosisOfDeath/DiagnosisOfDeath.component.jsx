@@ -17,7 +17,6 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  HeadingSecondary,
   HeadingTertiary,
   ReportContainer,
 } from "../../../components";
@@ -160,6 +159,92 @@ export default function DiagnosisOfDeath() {
                   data="Test Data"
                 />
                 <FieldData field="No signs of respiration" data="Test Data" />
+              </ColumnThree>
+            </Grid>
+          </Render>
+        </ReportContainer>
+      </Section>
+
+      {/* Conditions Unequivocally Associated */}
+      <Section>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-sticky-note"
+            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+            padding="0.6rem"
+          />
+        </Heading>
+
+        <ReportContainer>
+          <Render>
+            <FieldData field="Condition" data="Test Data" />
+          </Render>
+        </ReportContainer>
+      </Section>
+
+      {/* Expected Death */}
+      <Section>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-sticky-note"
+            text="E. Expected Death Due to Illness or Pre-Existing Condition"
+            padding="0.6rem"
+          />
+        </Heading>
+
+        <ReportContainer>
+          <Render>
+            <Grid>
+              <ColumnOne>
+                <FieldData
+                  field="Expected Death due to a terminal illness"
+                  data="Test Data"
+                />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="Explanation" data="Test Data" />
+              </ColumnTwo>
+            </Grid>
+          </Render>
+        </ReportContainer>
+      </Section>
+
+      {/* Attendance and Relatives */}
+      <Section>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-sticky-note"
+            text="Attendance and Relatives"
+            padding="0.6rem"
+          />
+        </Heading>
+
+        <ReportContainer>
+          <Render>
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Police Attendance" data="Test Data" />
+                <FieldData
+                  field="Details of Police involvement"
+                  data="Test Data"
+                />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="GP Attendance" data="Test Data" />
+                <FieldData field="Relatives Attendance" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData
+                  field="Bereavement Leaflet provided and consider religious support"
+                  data="Test Data"
+                />
+                <FieldData
+                  field="Did the Patient have a known learning disability? If yes, inform support centre"
+                  data="Test Data"
+                />
               </ColumnThree>
             </Grid>
           </Render>
