@@ -6,7 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import { Container, Wrapper } from "./Report.elements";
 
 // Import: Components, SubPages
-import { ReportHeader } from "../../components";
+import { PatientTile, ReportHeader } from "../../components";
 import {
   DiagnosisOfDeath,
   Ecg,
@@ -21,6 +21,8 @@ export default function Report() {
     <Container>
       <Wrapper>
         <ReportHeader />
+        <PatientTile />
+
         <Switch>
           <Route path="/" exact>
             <PatientReport />
