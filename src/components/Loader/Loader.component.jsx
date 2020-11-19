@@ -5,21 +5,21 @@ import React from "react";
 import { Spinner } from "./Loader.elements";
 
 // Component: Loader
-export default function Loader() {
+export default function Loader({ background }) {
   return (
     <Spinner>
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
+      <div style={{ background: `${background}` }} />
     </Spinner>
   );
 }
