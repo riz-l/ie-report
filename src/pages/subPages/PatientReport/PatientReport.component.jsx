@@ -71,6 +71,18 @@ export default function PatientReport() {
                 />
                 <FieldData field="Medication" data="Medication" />
               </ColumnTwo>
+
+              <ColumnThree>
+                <HeadingSecondary text="Next of Kin" />
+                <FieldData field="Forename" data="data" />
+                <FieldData field="Surname" data="data" />
+                <FieldData field="Relationship to Patient" data="data" />
+                <FieldData field="Contact Number" data="data" />
+                <HeadingSecondary text="Patient GP" />
+                <FieldData field="GP Surgery Name" data="data" />
+                <FieldData field="GP Address" data="data" />
+                <FieldData field="Other" data="data" />
+              </ColumnThree>
             </Grid>
           </Render>
         </ReportContainer>
@@ -498,6 +510,22 @@ export default function PatientReport() {
                   data="data"
                 />
               </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="The below section can also be populated using the Patient refusal slide out available in the Notes" />
+
+                <HeadingTertiary text="Refused Assessment" />
+                <FieldData field="Reason" data="data" />
+                <FieldData field="Other" data="data" />
+
+                <HeadingTertiary text="Refused Transport" />
+                <FieldData field="Reason" data="data" />
+                <FieldData field="Other" data="data" />
+
+                <HeadingTertiary text="Refused Intervention/Treatment" />
+                <FieldData field="Reason" data="data" />
+                <FieldData field="Other" data="data" />
+              </ColumnThree>
             </Grid>
           </Render>
         </ReportContainer>
@@ -514,10 +542,11 @@ export default function PatientReport() {
         </Heading>
 
         <ReportContainer>
-          <Render>
-            <HeadingSecondary text="Mental Capacity Act" />
-            <HeadingTertiary text="Does the Mental Capacity Act 2005 apply?" />
-            <Grid>
+           <HeadingSecondary text="Mental Capacity Act" />
+           <HeadingTertiary text="Does the Mental Capacity Act 2005 apply?" />
+
+           <HeadingSecondary text="Patient Decisions" />
+           <Grid>
               <ColumnOne>
                 <FieldData
                   field="Is the Patient over 16 years of age?"
@@ -537,6 +566,56 @@ export default function PatientReport() {
                   field="Is there a physical illness/injury that requires treatment?"
                   data="data"
                 />
+              </ColumnThree>
+            </Grid>
+
+          <Render>
+  
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Describe the decisions you're asking the Patient to make:" data="data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="Describe how the Patient has a disturbance of the mind, including a potential lack of capacity:" data="data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <HeadingTertiary text="Please identify why the Patient is unable to make a decision:" />
+                <FieldData field="Unable to understand information" data="data" />
+                <FieldData field="Unable to retain information" data="data" />
+                <FieldData field="Unable to use information to form a decision" data="data" />
+                <FieldData field="Unable to communicate their decision" data="data" />
+              </ColumnThree>
+            </Grid>
+
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Describe the actions you have taken to assist the Patient in making their own decisions and gain capacity:" data="data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="Despite the actions taken previously, I believe that the Patient still lacks capacity because:" data="data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="Is the desired treatment/assessment time critical and would delay cause immediate harm to the Patient:" data="data" />
+              </ColumnThree>
+            </Grid>
+
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Option A" data="data" />
+                <FieldData field="Option B" data="data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData field="Option A" data="data" />
+                <FieldData field="Option B" data="data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="I believe this option is the least restrictive and offers the Patient the appropriate care, which is proportionate to their condition and is in their best interests:" data="data" />
               </ColumnThree>
             </Grid>
           </Render>
@@ -574,6 +653,21 @@ export default function PatientReport() {
               <FieldData field="Registration No." data="data" />
               <FieldData field="Senior Clinician's Signature" data="data" />
             </ColumnThree>
+          </Grid>
+
+          <HeadingSecondary text="Patient Refusal" />
+          <HeadingTertiary text="Refusal Statement/Signature" />
+          <FieldData field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept all responsibility for my own care." data="data" />
+
+          <HeadingTertiary text="Patients / Guardians Name" />
+          <Grid>
+            <ColumnOne>
+              <FieldData field="Name" data="data" />
+            </ColumnOne>
+
+            <ColumnTwo>
+              <FieldData field="Patients/Guardian Signature" data="data" />
+            </ColumnTwo>
           </Grid>
         </Render>
       </ReportContainer>
