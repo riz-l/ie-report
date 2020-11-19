@@ -1,18 +1,17 @@
 // Import: Dependencies
 import React, { useState, useEffect } from "react";
-import { cadDetails } from "../../../../utils/axios";
+import { cadDetails } from "../../../../../utils/axios";
 
 // Import: Elements
 import {
   ColumnOne,
   ColumnTwo,
   ColumnThree,
-  Container,
   Grid,
   Heading,
   Render,
   Section,
-} from "./IncidentInformation.elements";
+} from "./PRFirst.elements";
 
 // Import: Components
 import {
@@ -20,18 +19,18 @@ import {
   HeadingPrimary,
   Loader,
   ReportContainer,
-} from "../../../../components";
+} from "../../../../../components";
 
-// Render: IncidentInformation
-export default function IncidentInformation() {
-  // State = loading, incidentData
+// Render: PRFirst
+export default function PRFirst() {
+  // State = loading, sectionData
   const [loading, setLoading] = useState(true);
-  const [incidentData, setIncidentData] = useState([]);
+  const [sectionData, setSectionData] = useState([]);
 
   // Patient Master_ePR_ID
   const patientId = "a6ef1fb3-2482-4ee3-b558-3d084d90247d";
 
-  // Fetch Patient Data
+  // Fetch Patient data from OneResponse API
   function getPatientData() {
     setLoading(true);
 
@@ -39,8 +38,7 @@ export default function IncidentInformation() {
       .get(`/${patientId}`, {})
       .then((res) => {
         const data = res.data;
-        console.log("Incident Data: ", data);
-        setIncidentData(data);
+        setSectionData(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -54,8 +52,8 @@ export default function IncidentInformation() {
     getPatientData();
   }, []);
 
-  //#region incidentRender = Incident Information Report
-  const incidentRender = incidentData.map((patient) => (
+  //#region sectionRender = Incident Information Report
+  const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       {/* Incident Information */}
       <Section>
@@ -175,10 +173,10 @@ export default function IncidentInformation() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /incidentRender = Incident Information Report
+  //#endregion /sectionRender = Incident Information Report
 
   return (
-    <Container>
+    <>
       {loading ? (
         <Section>
           <Heading>
@@ -195,8 +193,8 @@ export default function IncidentInformation() {
             </Render>
           </ReportContainer>
         </Section>
-      ) : incidentData && incidentData.length > 0 ? (
-        incidentRender
+      ) : sectionData && sectionData.length > 0 ? (
+        sectionRender
       ) : (
         <Section>
           <Heading>
@@ -214,6 +212,6 @@ export default function IncidentInformation() {
           </ReportContainer>
         </Section>
       )}
-    </Container>
+    </>
   );
 }

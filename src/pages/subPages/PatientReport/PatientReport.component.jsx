@@ -23,14 +23,14 @@ import {
 } from "../../../components";
 
 // Import: Renders
-import { IncidentInformation } from "../renders";
+import { PRFirst } from "./renders";
 
 // SubPage: PatientReport
 export default function PatientReport() {
   return (
     <Container>
       {/* Incident Information */}
-      <IncidentInformation />
+      <PRFirst />
 
       {/* Patient Details */}
       <Section>
