@@ -1,5 +1,6 @@
 // Import: Dependencies
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { diagnosisOfDeath } from "../../../utils/axios";
 
 // Import: Elements
 import {
@@ -18,13 +19,45 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../components";
 
 // SubPage: DiagnosisOfDeath
 export default function DiagnosisOfDeath() {
-  return (
-    <Container>
+  // State = dodData, loading
+  const [dodData, setDodData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Patient Master_ePR_ID
+  const patientId = "282e3dbb-a766-4185-8343-45e4e12d3587";
+
+  // Fetch Patient Data
+  function getPatientData() {
+    setLoading(true);
+
+    diagnosisOfDeath
+      .get(`/${patientId}`, {})
+      .then((res) => {
+        const data = res.data;
+        console.log("DoD Data: ", data);
+        setDodData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }
+
+  // Run getPatientData on load
+  useEffect(() => {
+    getPatientData();
+  }, []);
+
+  //#region dodRender = Diagnosis of Death Report
+  const dodRender = dodData.map((patient) => (
+    <React.Fragment key={patient.id}>
       {/* Diagnosis of Death */}
       <Section>
         <Heading>
@@ -41,18 +74,21 @@ export default function DiagnosisOfDeath() {
               <ColumnOne>
                 <FieldData
                   field="Diagnosis of Death Timed At"
-                  data="Test Data"
+                  data={patient.DoD_Time ? patient.DoD_Time : "Not recorded"}
                 />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="Privacy" data="Test Data" />
+                <FieldData
+                  field="Privacy"
+                  data={patient.Privacy ? patient.Privacy : "Not recorded"}
+                />
               </ColumnTwo>
 
               <ColumnThree>
                 <FieldData
                   field="Diagnosis of Death Confirmed By"
-                  data="Test Data"
+                  data={patient.Confirmed ? patient.Confirmed : "Not recorded"}
                 />
               </ColumnThree>
             </Grid>
@@ -76,21 +112,21 @@ export default function DiagnosisOfDeath() {
               <ColumnOne>
                 <FieldData
                   field="&#62; 15 minutes since the onset of collapse"
-                  data="Test Data"
+                  data={patient.DoD_Onset ? patient.DoD_Onset : "Not recorded"}
                 />
               </ColumnOne>
 
               <ColumnTwo>
                 <FieldData
                   field="Asystole for &#62; 30 seconds on the ECG monitor"
-                  data="Test Data"
+                  data={patient.DoD_ECG ? patient.DoD_ECG : "Not recorded"}
                 />
               </ColumnTwo>
 
               <ColumnThree>
                 <FieldData
                   field="No effective CPR prior to arrival of ambulance"
-                  data="Test Data"
+                  data={patient.DoD_CPR ? patient.DoD_CPR : "Not recorded"}
                 />
               </ColumnThree>
             </Grid>
@@ -112,7 +148,10 @@ export default function DiagnosisOfDeath() {
 
         <ReportContainer>
           <Render>
-            <FieldData field="Decision" data="Test Data" />
+            <FieldData
+              field="Decision"
+              data={patient.Decision ? patient.Decision : "Not recorded"}
+            />
           </Render>
         </ReportContainer>
       </Section>
@@ -133,32 +172,48 @@ export default function DiagnosisOfDeath() {
               <ColumnOne>
                 <FieldData
                   field="Continuous chest compressions"
-                  data="Test Data"
+                  data={patient.DoD_Chest ? patient.DoD_Chest : "Not recorded"}
                 />
                 <FieldData
                   field="Circulatory Access (IV or IO)"
-                  data="Test Data"
+                  data={
+                    patient.DoD_Circulatory
+                      ? patient.DoD_Circulatory
+                      : "Not recorded"
+                  }
                 />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="No palpable pulse" data="Test Data" />
+                <FieldData
+                  field="No palpable pulse"
+                  data={patient.DoD_Pulse ? patient.DoD_Pulse : "Not recorded"}
+                />
                 <FieldData
                   field="20 minutes of Asystole. Printed ECG for &#62; 30 seconds"
-                  data="Test Data"
+                  data={patient.DoD_ALS ? patient.DoD_ALS : "Not recorded"}
                 />
               </ColumnTwo>
 
               <ColumnThree>
                 <FieldData
                   field="Secured Airway (supraglottic or ET)"
-                  data="Test Data"
+                  data={
+                    patient.DoD_Airway ? patient.DoD_Airway : "Not recorded"
+                  }
                 />
                 <FieldData
                   field="Where appropriate, IV/IO admin of at least 4 x 1mg adrenaline and amiodarone"
-                  data="Test Data"
+                  data={patient.DoD_Admin ? patient.DoD_Admin : "Not recorded"}
                 />
-                <FieldData field="No signs of respiration" data="Test Data" />
+                <FieldData
+                  field="No signs of respiration"
+                  data={
+                    patient.DoD_Respiration
+                      ? patient.DoD_Respiration
+                      : "Not recorded"
+                  }
+                />
               </ColumnThree>
             </Grid>
           </Render>
@@ -177,7 +232,10 @@ export default function DiagnosisOfDeath() {
 
         <ReportContainer>
           <Render>
-            <FieldData field="Condition" data="Test Data" />
+            <FieldData
+              field="Condition"
+              data={patient.Condition ? patient.Condition : "Not recorded"}
+            />
           </Render>
         </ReportContainer>
       </Section>
@@ -198,12 +256,21 @@ export default function DiagnosisOfDeath() {
               <ColumnOne>
                 <FieldData
                   field="Expected Death due to a terminal illness"
-                  data="Test Data"
+                  data={
+                    patient.DoD_Terminal ? patient.DoD_Terminal : "Not recorded"
+                  }
                 />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="Explanation" data="Test Data" />
+                <FieldData
+                  field="Explanation"
+                  data={
+                    patient.Terminal_Illness
+                      ? patient.Terminal_Illness
+                      : "Not recorded"
+                  }
+                />
               </ColumnTwo>
             </Grid>
           </Render>
@@ -224,32 +291,54 @@ export default function DiagnosisOfDeath() {
           <Render>
             <Grid>
               <ColumnOne>
-                <FieldData field="Police Attendance" data="Test Data" />
+                <FieldData
+                  field="Police Attendance"
+                  data={patient.Police ? patient.Police : "Not recorded"}
+                />
                 <FieldData
                   field="Details of Police involvement"
-                  data="Test Data"
+                  data={
+                    patient.Terminal_Additional
+                      ? patient.Terminal_Additional
+                      : "Not recorded"
+                  }
                 />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="GP Attendance" data="Test Data" />
-                <FieldData field="Relatives Attendance" data="Test Data" />
+                <FieldData
+                  field="GP Attendance"
+                  data={patient.GP ? patient.GP : "Not recorded"}
+                />
+                <FieldData
+                  field="Relatives Attendance"
+                  data={patient.Relative ? patient.Relative : "Not recorded"}
+                />
               </ColumnTwo>
 
               <ColumnThree>
                 <FieldData
                   field="Bereavement Leaflet provided and consider religious support"
-                  data="Test Data"
+                  data={
+                    patient.DoD_Leaflet ? patient.DoD_Leaflet : "Not recorded"
+                  }
                 />
                 <FieldData
                   field="Did the Patient have a known learning disability? If yes, inform support centre"
-                  data="Test Data"
+                  data={
+                    patient.DoD_Disability
+                      ? patient.DoD_Disability
+                      : "Not recorded"
+                  }
                 />
               </ColumnThree>
             </Grid>
           </Render>
         </ReportContainer>
       </Section>
-    </Container>
-  );
+    </React.Fragment>
+  ));
+  //#endregion /dodRender = Diagnosis of Death Report
+
+  return <Container>{dodRender}</Container>;
 }
