@@ -9,11 +9,11 @@ export const Container = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
+  height: auto;
   -webkit-box-pack: flex-start;
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
-  margin-top: 1rem;
+  margin-top: 0rem;
   margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
