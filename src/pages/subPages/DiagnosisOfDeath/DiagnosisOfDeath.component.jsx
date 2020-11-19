@@ -25,9 +25,9 @@ import {
 
 // SubPage: DiagnosisOfDeath
 export default function DiagnosisOfDeath() {
-  // State = dodData, loading
-  const [dodData, setDodData] = useState([]);
+  // State = loading, dodData
   const [loading, setLoading] = useState(true);
+  const [dodData, setDodData] = useState([]);
 
   // Patient Master_ePR_ID
   const patientId = "282e3dbb-a766-4185-8343-45e4e12d3587";

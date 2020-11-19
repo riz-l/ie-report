@@ -22,9 +22,9 @@ import {
 
 // SubPage: Notes
 export default function Notes() {
-  // State = notesData, loading
-  const [notesData, setNotesData] = useState([]);
+  // State = loading, notesData
   const [loading, setLoading] = useState(true);
+  const [notesData, setNotesData] = useState([]);
 
   // Patient Master_ePR_ID
   const patientId = "d24fdd2c-021f-4329-9449-34cea4ee3503";

@@ -26,7 +26,7 @@ export default function PatientTile() {
   const [loading, setLoading] = useState(true);
 
   // Patient Master_ePR_ID
-  const patientId = "d24fdd2c-021f-4329-9449-34cea4ee3503";
+  const patientId = "a6ef1fb3-2482-4ee3-b558-3d084d90247d";
 
   // Fetch Patient Data
   function getPatientData() {

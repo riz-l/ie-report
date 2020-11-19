@@ -1,5 +1,6 @@
 // Import: Dependencies
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { cadDetails } from "../../../utils/axios";
 
 // Import: Elements
 import {
@@ -19,13 +20,45 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../components";
 
 // SubPage: PatientReport
 export default function PatientReport() {
-  return (
-    <Container>
+  // State = loading, incidentData
+  const [loading, setLoading] = useState(true);
+  const [incidentData, setIncidentData] = useState([]);
+
+  // Patient Master_ePR_ID
+  const patientId = "a6ef1fb3-2482-4ee3-b558-3d084d90247d";
+
+  // Fetch Patient Data
+  function getPatientData() {
+    setLoading(true);
+
+    cadDetails
+      .get(`/${patientId}`, {})
+      .then((res) => {
+        const data = res.data;
+        console.log("Incident Data: ", data);
+        setIncidentData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }
+
+  // Run getPatientData on load
+  useEffect(() => {
+    getPatientData();
+  }, []);
+
+  //#region incidentRender = Incident Information Report
+  const incidentRender = incidentData.map((patient) => (
+    <React.Fragment key={patient.id}>
       {/* Incident Information */}
       <Section>
         <Heading>
@@ -40,38 +73,150 @@ export default function PatientReport() {
           <Render>
             <Grid>
               <ColumnOne>
-                <FieldData field="Incident Number" data="Incident Number" />
-                <FieldData field="Call Sign" data="Call Sign" />
-                <FieldData field="Call Data" data="Call Data" />
+                <FieldData
+                  field="Incident Number"
+                  data={patient.CAD_ID ? patient.CAD_ID : "Not recorded"}
+                />
+                <FieldData
+                  field="Call Sign"
+                  data={patient.ePR_User ? patient.ePR_User : "Not recorded"}
+                />
+                <FieldData
+                  field="Call Data"
+                  data={patient.CAD_Date ? patient.CAD_Date : "Not recorded"}
+                />
                 <FieldData
                   field="Dispatch Complaint"
-                  data="Dispatch Complaint"
+                  data={
+                    patient.CAD_Complaint
+                      ? patient.CAD_Complaint
+                      : "Not recorded"
+                  }
                 />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="Crew" data="Test data" />
+                <FieldData
+                  field="Crew"
+                  data={patient.CAD_ID ? patient.CAD_ID : "Not recorded"}
+                />
                 <FieldData
                   field="Location of Incident"
-                  data="Location of Incident"
+                  data={
+                    patient.CAD_LocAdd1 ||
+                    patient.CAD_LocAdd2 ||
+                    patient.CAD_LocCity ||
+                    patient.CAD_LocPCode ? (
+                      <>
+                        {patient.CAD_LocAdd1}
+                        <br />
+                        {patient.CAD_LocAdd2}
+                        <br />
+                        {patient.CAD_LocCity}
+                        <br />
+                        {patient.CAD_LocPCode}
+                      </>
+                    ) : (
+                      "Not recorded"
+                    )
+                  }
                 />
               </ColumnTwo>
 
               <ColumnThree>
-                <FieldData field="Received" data="Received" />
-                <FieldData field="Mobile" data="Mobile" />
-                <FieldData field="On Scene" data="On Scene" />
-                <FieldData field="At Patient" data="At Patient" />
-                <FieldData field="Left Scene" data="Left Scene" />
+                <FieldData
+                  field="Received"
+                  data={
+                    patient.CAD_IncidentDate
+                      ? patient.CAD_IncidentDate
+                      : "Not recorded"
+                  }
+                />
+                <FieldData
+                  field="Mobile"
+                  data={
+                    patient.CAD_Enroute ? patient.CAD_Enroute : "Not recorded"
+                  }
+                />
+                <FieldData
+                  field="On Scene"
+                  data={
+                    patient.CAD_ArriveScene
+                      ? patient.CAD_ArriveScene
+                      : "Not recorded"
+                  }
+                />
+                <FieldData
+                  field="At Patient"
+                  data={
+                    patient.CAD_ArrivePatient
+                      ? patient.CAD_ArrivePatient
+                      : "Not recorded"
+                  }
+                />
+                <FieldData
+                  field="Left Scene"
+                  data={
+                    patient.CAD_DepartScene
+                      ? patient.CAD_DepartScene
+                      : "Not recorded"
+                  }
+                />
                 <FieldData
                   field="Arrived Destination"
-                  data="Arrived Destination"
+                  data={
+                    patient.CAD_ArriveDest
+                      ? patient.CAD_ArriveDest
+                      : "Not recorded"
+                  }
                 />
               </ColumnThree>
             </Grid>
           </Render>
         </ReportContainer>
       </Section>
+    </React.Fragment>
+  ));
+  //#endregion /incidentRender = Incident Information Report
+
+  return (
+    <Container>
+      {/* Incident Information */}
+      {loading ? (
+        <Section>
+          <Heading>
+            <HeadingPrimary
+              icon="fas fa-file-medical-alt"
+              text="Incident Information"
+              padding="0.6rem"
+            />
+          </Heading>
+
+          <ReportContainer>
+            <Render>
+              <Loader background="#3a3a40" />
+            </Render>
+          </ReportContainer>
+        </Section>
+      ) : incidentData && incidentData.length > 0 ? (
+        incidentRender
+      ) : (
+        <Section>
+          <Heading>
+            <HeadingPrimary
+              icon="fas fa-file-medical-alt"
+              text="Incident Information"
+              padding="0.6rem"
+            />
+          </Heading>
+
+          <ReportContainer>
+            <Render>
+              <FieldData data="There is no Incident Information data for this Patient" />
+            </Render>
+          </ReportContainer>
+        </Section>
+      )}
 
       {/* Patient Details */}
       <Section>
@@ -82,6 +227,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <Grid>
@@ -125,6 +271,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <HeadingSecondary text="Stroke Assessment" />
@@ -181,6 +328,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <Grid>
@@ -235,6 +383,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <Grid>
@@ -303,6 +452,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <Grid>
@@ -353,6 +503,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <HeadingSecondary text="Specialist Pathways Assessment" />
@@ -451,6 +602,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <HeadingSecondary text="Burns" />
@@ -493,6 +645,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <Grid>
@@ -545,6 +698,7 @@ export default function PatientReport() {
             padding="0.6rem"
           />
         </Heading>
+
         <ReportContainer>
           <Render>
             <HeadingSecondary text="Mental Capacity Act" />
@@ -583,6 +737,7 @@ export default function PatientReport() {
           padding="0.6rem"
         />
       </Heading>
+
       <ReportContainer>
         <Render>
           <HeadingSecondary text="Final Impression and Clinical Signatures" />
