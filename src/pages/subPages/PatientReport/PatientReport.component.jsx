@@ -542,64 +542,87 @@ export default function PatientReport() {
         </Heading>
 
         <ReportContainer>
-           <HeadingSecondary text="Mental Capacity Act" />
-           <HeadingTertiary text="Does the Mental Capacity Act 2005 apply?" />
+          <HeadingSecondary text="Mental Capacity Act" />
+          <HeadingTertiary text="Does the Mental Capacity Act 2005 apply?" />
 
-           <HeadingSecondary text="Patient Decisions" />
-           <Grid>
-              <ColumnOne>
-                <FieldData
-                  field="Is the Patient over 16 years of age?"
-                  data="data"
-                />
-              </ColumnOne>
+          <HeadingSecondary text="Patient Decisions" />
+          <Grid>
+            <ColumnOne>
+              <FieldData
+                field="Is the Patient over 16 years of age?"
+                data="data"
+              />
+            </ColumnOne>
 
-              <ColumnTwo>
-                <FieldData
-                  field="Is there reason to doubt the Patients capacity?"
-                  data="data"
-                />
-              </ColumnTwo>
+            <ColumnTwo>
+              <FieldData
+                field="Is there reason to doubt the Patients capacity?"
+                data="data"
+              />
+            </ColumnTwo>
 
-              <ColumnThree>
-                <FieldData
-                  field="Is there a physical illness/injury that requires treatment?"
-                  data="data"
-                />
-              </ColumnThree>
-            </Grid>
+            <ColumnThree>
+              <FieldData
+                field="Is there a physical illness/injury that requires treatment?"
+                data="data"
+              />
+            </ColumnThree>
+          </Grid>
 
           <Render>
-  
             <Grid>
               <ColumnOne>
-                <FieldData field="Describe the decisions you're asking the Patient to make:" data="data" />
+                <FieldData
+                  field="Describe the decisions you're asking the Patient to make:"
+                  data="data"
+                />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="Describe how the Patient has a disturbance of the mind, including a potential lack of capacity:" data="data" />
+                <FieldData
+                  field="Describe how the Patient has a disturbance of the mind, including a potential lack of capacity:"
+                  data="data"
+                />
               </ColumnTwo>
 
               <ColumnThree>
                 <HeadingTertiary text="Please identify why the Patient is unable to make a decision:" />
-                <FieldData field="Unable to understand information" data="data" />
+                <FieldData
+                  field="Unable to understand information"
+                  data="data"
+                />
                 <FieldData field="Unable to retain information" data="data" />
-                <FieldData field="Unable to use information to form a decision" data="data" />
-                <FieldData field="Unable to communicate their decision" data="data" />
+                <FieldData
+                  field="Unable to use information to form a decision"
+                  data="data"
+                />
+                <FieldData
+                  field="Unable to communicate their decision"
+                  data="data"
+                />
               </ColumnThree>
             </Grid>
 
             <Grid>
               <ColumnOne>
-                <FieldData field="Describe the actions you have taken to assist the Patient in making their own decisions and gain capacity:" data="data" />
+                <FieldData
+                  field="Describe the actions you have taken to assist the Patient in making their own decisions and gain capacity:"
+                  data="data"
+                />
               </ColumnOne>
 
               <ColumnTwo>
-                <FieldData field="Despite the actions taken previously, I believe that the Patient still lacks capacity because:" data="data" />
+                <FieldData
+                  field="Despite the actions taken previously, I believe that the Patient still lacks capacity because:"
+                  data="data"
+                />
               </ColumnTwo>
 
               <ColumnThree>
-                <FieldData field="Is the desired treatment/assessment time critical and would delay cause immediate harm to the Patient:" data="data" />
+                <FieldData
+                  field="Is the desired treatment/assessment time critical and would delay cause immediate harm to the Patient:"
+                  data="data"
+                />
               </ColumnThree>
             </Grid>
 
@@ -615,7 +638,10 @@ export default function PatientReport() {
               </ColumnTwo>
 
               <ColumnThree>
-                <FieldData field="I believe this option is the least restrictive and offers the Patient the appropriate care, which is proportionate to their condition and is in their best interests:" data="data" />
+                <FieldData
+                  field="I believe this option is the least restrictive and offers the Patient the appropriate care, which is proportionate to their condition and is in their best interests:"
+                  data="data"
+                />
               </ColumnThree>
             </Grid>
           </Render>
@@ -657,7 +683,10 @@ export default function PatientReport() {
 
           <HeadingSecondary text="Patient Refusal" />
           <HeadingTertiary text="Refusal Statement/Signature" />
-          <FieldData field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept all responsibility for my own care." data="data" />
+          <FieldData
+            field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept all responsibility for my own care."
+            data="data"
+          />
 
           <HeadingTertiary text="Patients / Guardians Name" />
           <Grid>
