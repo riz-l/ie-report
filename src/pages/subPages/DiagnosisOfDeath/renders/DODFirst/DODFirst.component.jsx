@@ -55,7 +55,6 @@ export default function DODFirst() {
   //#region sectionRender = Diagnosis of Death Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Diagnosis of Death */}
       <Section>
         <Heading>
           <HeadingPrimary

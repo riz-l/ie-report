@@ -55,11 +55,10 @@ export default function PRFirst() {
   //#region sectionRender = Incident Information Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Incident Information */}
       <Section>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-fil-medical-alt"
+            icon="fas fa-file-medical-alt"
             text="Incident Information"
             padding="0.6rem"
           />
