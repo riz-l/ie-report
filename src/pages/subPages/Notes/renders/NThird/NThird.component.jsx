@@ -1,9 +1,9 @@
 // Import: Dependencies
 import React, { useState, useEffect } from "react";
-import { diagnosisOfDeath } from "../../../../../utils/axios";
+import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { Heading, Render, Section } from "./DODFifth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NThird.elements";
 
 // Import: Components
 import {
@@ -13,20 +13,20 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODFifth
-export default function DODFifth() {
+// Render: PRFirst
+export default function PRFirst() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
 
   // Patient Master_ePR_ID
-  const patientId = "282e3dbb-a766-4185-8343-45e4e12d3587";
+  const patientId = "a6ef1fb3-2482-4ee3-b558-3d084d90247d";
 
   // Fetch Patient data from OneResponse API
   function getPatientData() {
     setLoading(true);
 
-    diagnosisOfDeath
+    notes
       .get(`/${patientId}`, {})
       .then((res) => {
         const data = res.data;
@@ -44,30 +44,41 @@ export default function DODFifth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Conditions Unequivocally Associated... Report
+  //#region sectionRender = Previous Medical History Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+            text="Previous Medical History"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <FieldData
-              field="Condition"
-              data={patient.Condition ? patient.Condition : "Not recorded"}
-            />
+            <Grid>
+              <ColumnOne>
+                {loading ? (
+                  <Loader background="#3a3a40" />
+                ) : (
+                  <FieldData
+                    data={
+                      patient.AddtItem_PMH
+                        ? patient.AddtItem_PMH
+                        : "Not recorded"
+                    }
+                  />
+                )}
+              </ColumnOne>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Conditions Unequivocally Associated... Report
+  //#endregion /sectionRender = Previous Medical History Report
 
   return (
     <>
@@ -76,7 +87,7 @@ export default function DODFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+              text="Previous Medical History"
               padding="0.6rem"
             />
           </Heading>
@@ -94,14 +105,14 @@ export default function DODFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+              text="Previous Medical History"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
+              <FieldData data="There is no Previous Medical History data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

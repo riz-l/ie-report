@@ -55,7 +55,6 @@ export default function DODSeventh() {
   //#region sectionRender = Attendance and Relatives Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Attendance and Relatives */}
       <Section>
         <Heading>
           <HeadingPrimary

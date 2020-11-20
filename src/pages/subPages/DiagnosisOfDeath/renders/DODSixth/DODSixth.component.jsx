@@ -54,7 +54,6 @@ export default function DODSixth() {
   //#region sectionRender = Expected Death... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Expected Death */}
       <Section>
         <Heading>
           <HeadingPrimary

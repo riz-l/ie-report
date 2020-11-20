@@ -56,7 +56,6 @@ export default function DODSecond() {
   //#region sectionRender = Factors to Confirm... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Factors to Confirm */}
       <Section>
         <Heading>
           <HeadingPrimary

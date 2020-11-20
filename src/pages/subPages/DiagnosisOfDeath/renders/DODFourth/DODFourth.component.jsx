@@ -55,7 +55,6 @@ export default function DODFourth() {
   //#region sectionRender = Termination of Resuscitation... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Termination of Resuscitation */}
       <Section>
         <Heading>
           <HeadingPrimary

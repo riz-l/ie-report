@@ -47,7 +47,6 @@ export default function DODThird() {
   //#region sectionRender = Advance Decisions to Refuse... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
-      {/* Advance Decisions to Refuse */}
       <Section>
         <Heading>
           <HeadingPrimary
