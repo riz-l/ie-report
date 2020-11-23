@@ -12,8 +12,10 @@ import {
   Render,
   Section,
   Table,
+  TableHead,
   TableRow,
   TableHeading,
+  TableBody,
   TableData,
 } from "./ClinicalObservations.elements";
 
@@ -71,45 +73,21 @@ export default function ClinicalObservations() {
         <ReportContainer>
           <Render>
             <Table>
-              <TableRow>
-                <TableHeading>Test 1</TableHeading>
-                <TableHeading>Test 2</TableHeading>
-                <TableHeading>Test 3</TableHeading>
-                <TableHeading>Test 4</TableHeading>
-                <TableHeading>Test 5</TableHeading>
-                <TableHeading>Test 6</TableHeading>
-                <TableHeading>Test 7</TableHeading>
-                <TableHeading>Test 8</TableHeading>
-                <TableHeading>Test 9</TableHeading>
-                <TableHeading>Test 10</TableHeading>
-                <TableHeading>Test 11</TableHeading>
-                <TableHeading>Test 12</TableHeading>
-                <TableHeading>Test 13</TableHeading>
-                <TableHeading>Test 14</TableHeading>
-                <TableHeading>Test 15</TableHeading>
-                <TableHeading>Test 16</TableHeading>
-                <TableHeading>Test 17</TableHeading>
-              </TableRow>
+              <TableHead>
+                <TableRow>
+                  <TableHeading>First Name</TableHeading>
+                  <TableHeading>Last Name</TableHeading>
+                  <TableHeading>Job Title</TableHeading>
+                </TableRow>
+              </TableHead>
 
-              <TableRow>
-                <TableData>Data 1</TableData>
-                <TableData>Data 2</TableData>
-                <TableData>Data 3</TableData>
-                <TableData>Data 4</TableData>
-                <TableData>Data 5</TableData>
-                <TableData>Data 6</TableData>
-                <TableData>Data 7</TableData>
-                <TableData>Data 8</TableData>
-                <TableData>Data 9</TableData>
-                <TableData>Data 10</TableData>
-                <TableData>Data 11</TableData>
-                <TableData>Data 12</TableData>
-                <TableData>Data 13</TableData>
-                <TableData>Data 14</TableData>
-                <TableData>Data 15</TableData>
-                <TableData>Data 16</TableData>
-                <TableData>Data 17</TableData>
-              </TableRow>
+              <TableBody>
+                <TableRow>
+                  <TableData>Riz</TableData>
+                  <TableData>Layton</TableData>
+                  <TableData>Developer</TableData>
+                </TableRow>
+              </TableBody>
             </Table>
           </Render>
         </ReportContainer>

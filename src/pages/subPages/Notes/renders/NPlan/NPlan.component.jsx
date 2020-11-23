@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NFifth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NPlan.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NFifth
-export default function NFifth() {
+// Render: NPlan
+export default function NPlan() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NFifth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Family History Report
+  //#region sectionRender = Plan / Treatment Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Family History"
+            text="Plan / Treatment"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NFifth() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_Family_History
-                        ? patient.AddtItem_Family_History
+                      patient.AddtItem_Meds
+                        ? patient.AddtItem_Meds
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NFifth() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Family History Report
+  //#endregion /sectionRender = Plan / Treatment Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Family History"
+              text="Plan / Treatment"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Family History"
+              text="Plan / Treatment"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Family History data for this Patient" />
+              <FieldData data="There is no Plan / Treatment data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -1,26 +1,26 @@
-// Export: NFirst
-export { default as NFirst } from "./NFirst/NFirst.component";
+// Export: NPres
+export { default as NPres } from "./NPres/NPres.component";
 
-// Export: NSecond
-export { default as NSecond } from "./NSecond/NSecond.component";
+// Export: NHis
+export { default as NHis } from "./NHis/NHis.component";
 
-// Export: NThird
-export { default as NThird } from "./NThird/NThird.component";
+// Export: NPrev
+export { default as NPrev } from "./NPrev/NPrev.component";
 
-// Export: NFourth
-export { default as NFourth } from "./NFourth/NFourth.component";
+// Export: NSoc
+export { default as NSoc } from "./NSoc/NSoc.component";
 
-// Export: NFifth
-export { default as NFifth } from "./NFifth/NFifth.component";
+// Export: NFam
+export { default as NFam } from "./NFam/NFam.component";
 
-// Export: NSixth
-export { default as NSixth } from "./NSixth/NSixth.component";
+// Export: NOn
+export { default as NOn } from "./NOn/NOn.component";
 
-// Export: NSeventh
-export { default as NSeventh } from "./NSeventh/NSeventh.component";
+// Export: NImp
+export { default as NImp } from "./NImp/NImp.component";
 
-// Export: NEighth
-export { default as NEighth } from "./NEighth/NEighth.component";
+// Export: NPlan
+export { default as NPlan } from "./NPlan/NPlan.component";
 
-// Export: NNinth
-export { default as NNinth } from "./NNinth/NNinth.component";
+// Export: NAdd
+export { default as NAdd } from "./NAdd/NAdd.component";

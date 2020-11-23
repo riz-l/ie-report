@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NThird.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NFam.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NThird
-export default function NThird() {
+// Render: NFam
+export default function NFam() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NThird() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Previous Medical History Report
+  //#region sectionRender = Family History Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Previous Medical History"
+            text="Family History"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NThird() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_PMH
-                        ? patient.AddtItem_PMH
+                      patient.AddtItem_Family_History
+                        ? patient.AddtItem_Family_History
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NThird() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Previous Medical History Report
+  //#endregion /sectionRender = Family History Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NThird() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Previous Medical History"
+              text="Family History"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NThird() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Previous Medical History"
+              text="Family History"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Previous Medical History data for this Patient" />
+              <FieldData data="There is no Family History data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

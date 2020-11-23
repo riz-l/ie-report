@@ -96,15 +96,37 @@ export const Heading = styled.div`
 
 // Element: Table
 export const Table = styled.table`
-  height: auto;
-  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
 `;
 
+// Element: TableHead
+export const TableHead = styled.thead``;
+
 // Element: TableRow
-export const TableRow = styled.tr``;
+export const TableRow = styled.tr`
+  &:nth-of-type(odd) {
+    background: #eee;
+  }
+`;
 
 // Element: TableHeading
-export const TableHeading = styled.th``;
+export const TableHeading = styled.th`
+  background: #333;
+  color: #ffffff;
+  font-weight: bold;
+
+  padding: 6px;
+  border: 1px solid #cccccc;
+  font-weight: bold;
+`;
+
+// Element: TableBody
+export const TableBody = styled.tbody``;
 
 // Element: TableData
-export const TableData = styled.td``;
+export const TableData = styled.td`
+  padding: 6px;
+  border: 1px solid #cccccc;
+  font-weight: bold;
+`;

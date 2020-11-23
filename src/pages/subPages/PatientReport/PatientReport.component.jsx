@@ -438,7 +438,7 @@ export default function PatientReport() {
                 <HeadingTertiary text="Head" />
                 <FieldData field="Thickness" data="data" />
                 <FieldData field="&#37; Area" data="data" />
-                <FieldData field="time Dressing Applied" data="data" />
+                <FieldData field="Time Dressing Applied" data="data" />
                 <FieldData field="Time Cooling Applied" data="data" />
               </ColumnOne>
 
@@ -446,7 +446,7 @@ export default function PatientReport() {
                 <HeadingTertiary text="Torso" />
                 <FieldData field="Thickness" data="data" />
                 <FieldData field="&#37; Area" data="data" />
-                <FieldData field="time Dressing Applied" data="data" />
+                <FieldData field="Time Dressing Applied" data="data" />
                 <FieldData field="Time Cooling Applied" data="data" />
               </ColumnTwo>
 
@@ -454,7 +454,7 @@ export default function PatientReport() {
                 <HeadingTertiary text="Limbs" />
                 <FieldData field="Thickness" data="data" />
                 <FieldData field="&#37; Area" data="data" />
-                <FieldData field="time Dressing Applied" data="data" />
+                <FieldData field="Time Dressing Applied" data="data" />
                 <FieldData field="Time Cooling Applied" data="data" />
               </ColumnThree>
             </Grid>

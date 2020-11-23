@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NSecond.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NImp.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NSecond
-export default function NSecond() {
+// Render: NImp
+export default function NImp() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NSecond() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = History of Presenting Complaint Report
+  //#region sectionRender = Impression Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="History of Presenting Complaint"
+            text="Impression"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NSecond() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_HPC
-                        ? patient.AddtItem_HPC
+                      patient.AddtItem_Impr_and_Trmt
+                        ? patient.AddtItem_Impr_and_Trmt
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NSecond() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = History of Presenting Complaint Report
+  //#endregion /sectionRender = Impression Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NSecond() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="History of Presenting Complaint"
+              text="Impression"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NSecond() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="History of Presenting Complaint"
+              text="Impression"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no History of Presenting Complaint data for this Patient" />
+              <FieldData data="There is no Impression data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

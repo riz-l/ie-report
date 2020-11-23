@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NFourth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NHis.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NFourth
-export default function NFourth() {
+// Render: NHis
+export default function NHis() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NFourth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Social History Report
+  //#region sectionRender = History of Presenting Complaint Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Social History"
+            text="History of Presenting Complaint"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NFourth() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_Social_History
-                        ? patient.AddtItem_Social_History
+                      patient.AddtItem_HPC
+                        ? patient.AddtItem_HPC
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NFourth() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Social History Report
+  //#endregion /sectionRender = History of Presenting Complaint Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NFourth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Social History"
+              text="History of Presenting Complaint"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NFourth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Social History"
+              text="History of Presenting Complaint"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Social History data for this Patient" />
+              <FieldData data="There is no History of Presenting Complaint data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

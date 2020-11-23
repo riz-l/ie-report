@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NNinth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NSoc.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NNinth
-export default function NNinth() {
+// Render: NSoc
+export default function NSoc() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NNinth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Additional Information Report
+  //#region sectionRender = Social History Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Additional Information"
+            text="Social History"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NNinth() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_Adds_Info
-                        ? patient.AddtItem_Adds_Info
+                      patient.AddtItem_Social_History
+                        ? patient.AddtItem_Social_History
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NNinth() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Additional Information Report
+  //#endregion /sectionRender = Social History Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NNinth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Additional Information"
+              text="Social History"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NNinth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Additional Information"
+              text="Social History"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Additional Information data for this Patient" />
+              <FieldData data="There is no Social History data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NSeventh.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NPres.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NSeventh
-export default function NSeventh() {
+// Render: NPres
+export default function NPres() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NSeventh() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Impression Report
+  //#region sectionRender = Presenting Complaint Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Impression"
+            text="Presenting Complaint"
             padding="0.6rem"
           />
         </Heading>
@@ -65,9 +65,7 @@ export default function NSeventh() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_Impr_and_Trmt
-                        ? patient.AddtItem_Impr_and_Trmt
-                        : "Not recorded"
+                      patient.AddtItem_PC ? patient.AddtItem_PC : "Not recorded"
                     }
                   />
                 )}
@@ -78,7 +76,7 @@ export default function NSeventh() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Impression Report
+  //#endregion /sectionRender = Presenting Complaint Report
 
   return (
     <>
@@ -87,7 +85,7 @@ export default function NSeventh() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Impression"
+              text="Presenting Complaint"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +103,14 @@ export default function NSeventh() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Impression"
+              text="Presenting Complaint"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Impression data for this Patient" />
+              <FieldData data="There is no Presenting Complaint data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NFirst.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NOn.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NFirst
-export default function NFirst() {
+// Render: NOn
+export default function NOn() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NFirst() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Presenting Complaint Report
+  //#region sectionRender = On Examination Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Presenting Complaint"
+            text="On Examination"
             padding="0.6rem"
           />
         </Heading>
@@ -65,7 +65,9 @@ export default function NFirst() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_PC ? patient.AddtItem_PC : "Not recorded"
+                      patient.AddtItem_On_Examination
+                        ? patient.AddtItem_On_Examination
+                        : "Not recorded"
                     }
                   />
                 )}
@@ -76,7 +78,7 @@ export default function NFirst() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Presenting Complaint Report
+  //#endregion /sectionRender = On Examination Report
 
   return (
     <>
@@ -85,7 +87,7 @@ export default function NFirst() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Presenting Complaint"
+              text="On Examination"
               padding="0.6rem"
             />
           </Heading>
@@ -103,14 +105,14 @@ export default function NFirst() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Presenting Complaint"
+              text="On Examination"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Presenting Complaint data for this Patient" />
+              <FieldData data="There is no On Examination data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -6,15 +6,15 @@ import { Container } from "./Notes.elements";
 
 // Import: Renders
 import {
-  NFirst,
-  NSecond,
-  NThird,
-  NFourth,
-  NFifth,
-  NSixth,
-  NSeventh,
-  NEighth,
-  NNinth,
+  NPres,
+  NHis,
+  NPrev,
+  NSoc,
+  NFam,
+  NOn,
+  NImp,
+  NPlan,
+  NAdd,
 } from "./renders";
 
 // SubPage: Notes
@@ -22,31 +22,31 @@ export default function Notes() {
   return (
     <Container>
       {/* Presenting Complaint */}
-      <NFirst />
+      <NPres />
 
       {/* History of Presenting Complaint */}
-      <NSecond />
+      <NHis />
 
       {/* Previous Medical History */}
-      <NThird />
+      <NPrev />
 
       {/* Social History */}
-      <NFourth />
+      <NSoc />
 
       {/* Family History */}
-      <NFifth />
+      <NFam />
 
       {/* On Examination */}
-      <NSixth />
+      <NOn />
 
       {/* Impression */}
-      <NSeventh />
+      <NImp />
 
       {/* Plan / Treatment */}
-      <NEighth />
+      <NPlan />
 
       {/* Additional Information */}
-      <NNinth />
+      <NAdd />
     </Container>
   );
 }

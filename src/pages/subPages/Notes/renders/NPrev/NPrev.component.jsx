@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NSixth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NPrev.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NSixth
-export default function NSixth() {
+// Render: NPrev
+export default function NPrev() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NSixth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = On Examination Report
+  //#region sectionRender = Previous Medical History Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="On Examination"
+            text="Previous Medical History"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NSixth() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_On_Examination
-                        ? patient.AddtItem_On_Examination
+                      patient.AddtItem_PMH
+                        ? patient.AddtItem_PMH
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NSixth() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = On Examination Report
+  //#endregion /sectionRender = Previous Medical History Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NSixth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="On Examination"
+              text="Previous Medical History"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NSixth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="On Examination"
+              text="Previous Medical History"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no On Examination data for this Patient" />
+              <FieldData data="There is no Previous Medical History data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

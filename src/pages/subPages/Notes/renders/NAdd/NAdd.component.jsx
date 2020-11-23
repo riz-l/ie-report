@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { notes } from "../../../../../utils/axios";
 
 // Import: Elements
-import { ColumnOne, Grid, Heading, Render, Section } from "./NEighth.elements";
+import { ColumnOne, Grid, Heading, Render, Section } from "./NAdd.elements";
 
 // Import: Components
 import {
@@ -13,8 +13,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: NEighth
-export default function NEighth() {
+// Render: NAdd
+export default function NAdd() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,14 +44,14 @@ export default function NEighth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Plan / Treatment Report
+  //#region sectionRender = Additional Information Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Plan / Treatment"
+            text="Additional Information"
             padding="0.6rem"
           />
         </Heading>
@@ -65,8 +65,8 @@ export default function NEighth() {
                 ) : (
                   <FieldData
                     data={
-                      patient.AddtItem_Meds
-                        ? patient.AddtItem_Meds
+                      patient.AddtItem_Adds_Info
+                        ? patient.AddtItem_Adds_Info
                         : "Not recorded"
                     }
                   />
@@ -78,7 +78,7 @@ export default function NEighth() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Plan / Treatment Report
+  //#endregion /sectionRender = Additional Information Report
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function NEighth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Plan / Treatment"
+              text="Additional Information"
               padding="0.6rem"
             />
           </Heading>
@@ -105,14 +105,14 @@ export default function NEighth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Plan / Treatment"
+              text="Additional Information"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Plan / Treatment data for this Patient" />
+              <FieldData data="There is no Additional Information data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>
