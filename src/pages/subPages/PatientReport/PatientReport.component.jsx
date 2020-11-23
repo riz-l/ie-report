@@ -23,7 +23,7 @@ import {
 } from "../../../components";
 
 // Import: Renders
-import { PRFirst } from "./renders";
+import { PRFirst, ClinicalObservations } from "./renders";
 
 // SubPage: PatientReport
 export default function PatientReport() {
@@ -700,6 +700,8 @@ export default function PatientReport() {
           </Grid>
         </Render>
       </ReportContainer>
+
+      <ClinicalObservations />
     </Container>
   );
 }

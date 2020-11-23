@@ -13,7 +13,7 @@ import {
   NFifth,
   NSixth,
   NSeventh,
-  NEigth,
+  NEighth,
   NNinth,
 } from "./renders";
 
@@ -43,7 +43,7 @@ export default function Notes() {
       <NSeventh />
 
       {/* Plan / Treatment */}
-      <NEigth />
+      <NEighth />
 
       {/* Additional Information */}
       <NNinth />

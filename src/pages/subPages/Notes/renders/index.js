@@ -19,8 +19,8 @@ export { default as NSixth } from "./NSixth/NSixth.component";
 // Export: NSeventh
 export { default as NSeventh } from "./NSeventh/NSeventh.component";
 
-// Export: NEigth
-export { default as NEigth } from "./NEigth/NEigth.component";
+// Export: NEighth
+export { default as NEighth } from "./NEighth/NEighth.component";
 
 // Export: NNinth
 export { default as NNinth } from "./NNinth/NNinth.component";
