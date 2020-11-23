@@ -92,23 +92,23 @@ export default function ClinicalObservations() {
               </TableRow>
 
               <TableRow>
-                <TableData>1</TableData>
-                <TableData>2</TableData>
-                <TableData>3</TableData>
-                <TableData>4</TableData>
-                <TableData>5</TableData>
-                <TableData>6</TableData>
-                <TableData>7</TableData>
-                <TableData>8</TableData>
-                <TableData>9</TableData>
-                <TableData>10</TableData>
-                <TableData>11</TableData>
-                <TableData>12</TableData>
-                <TableData>13</TableData>
-                <TableData>14</TableData>
-                <TableData>15</TableData>
-                <TableData>16</TableData>
-                <TableData>17</TableData>
+                <TableData>Data 1</TableData>
+                <TableData>Data 2</TableData>
+                <TableData>Data 3</TableData>
+                <TableData>Data 4</TableData>
+                <TableData>Data 5</TableData>
+                <TableData>Data 6</TableData>
+                <TableData>Data 7</TableData>
+                <TableData>Data 8</TableData>
+                <TableData>Data 9</TableData>
+                <TableData>Data 10</TableData>
+                <TableData>Data 11</TableData>
+                <TableData>Data 12</TableData>
+                <TableData>Data 13</TableData>
+                <TableData>Data 14</TableData>
+                <TableData>Data 15</TableData>
+                <TableData>Data 16</TableData>
+                <TableData>Data 17</TableData>
               </TableRow>
             </Table>
           </Render>
