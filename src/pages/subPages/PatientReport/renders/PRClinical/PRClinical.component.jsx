@@ -4,19 +4,11 @@ import { cadDetails } from "../../../../../utils/axios";
 
 // Import: Elements
 import {
-  ColumnOne,
-  ColumnTwo,
-  ColumnThree,
-  Grid,
   Heading,
   Render,
   Section,
   Table,
-  TableHead,
-  TableRow,
-  TableHeading,
-  TableBody,
-  TableData,
+  TableColumn,
 } from "./PRClinical.elements";
 
 // Import: Components
@@ -73,21 +65,29 @@ export default function PRClinical() {
         <ReportContainer>
           <Render>
             <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeading>First Name</TableHeading>
-                  <TableHeading>Last Name</TableHeading>
-                  <TableHeading>Job Title</TableHeading>
-                </TableRow>
-              </TableHead>
+              <TableColumn>
+                <FieldData
+                  field="Time"
+                  data="Time Data"
+                  paddingBottom="2px"
+                  fontSize="0.71rem"
+                  fieldFontWeight="700"
+                  fieldMinHeight="45px"
+                  fieldTextTransform="uppercase"
+                />
+              </TableColumn>
 
-              <TableBody>
-                <TableRow>
-                  <TableData>Riz</TableData>
-                  <TableData>Layton</TableData>
-                  <TableData>Developer</TableData>
-                </TableRow>
-              </TableBody>
+              <TableColumn>
+                <FieldData
+                  field="Time"
+                  data="Time Data"
+                  paddingBottom="2px"
+                  fontSize="0.71rem"
+                  fieldFontWeight="700"
+                  fieldMinHeight="45px"
+                  fieldTextTransform="uppercase"
+                />
+              </TableColumn>
             </Table>
           </Render>
         </ReportContainer>
