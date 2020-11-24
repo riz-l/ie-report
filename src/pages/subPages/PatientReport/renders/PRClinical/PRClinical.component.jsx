@@ -17,7 +17,7 @@ import {
   TableHeading,
   TableBody,
   TableData,
-} from "./ClinicalObservations.elements";
+} from "./PRClinical.elements";
 
 // Import: Components
 import {
@@ -27,8 +27,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: ClinicalObservations
-export default function ClinicalObservations() {
+// Render: PRClinical
+export default function PRClinical() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);

@@ -11,7 +11,7 @@ import {
   Heading,
   Render,
   Section,
-} from "./PRFirst.elements";
+} from "./PRIncident.elements";
 
 // Import: Components
 import {
@@ -21,8 +21,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: PRFirst
-export default function PRFirst() {
+// Render: PRIncident
+export default function PRIncident() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);

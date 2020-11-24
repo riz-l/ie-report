@@ -23,70 +23,17 @@ import {
 } from "../../../components";
 
 // Import: Renders
-import { PRFirst, ClinicalObservations } from "./renders";
+import { PRClinical, PRPatient, PRIncident } from "./renders";
 
 // SubPage: PatientReport
 export default function PatientReport() {
   return (
     <Container>
       {/* Incident Information */}
-      <PRFirst />
+      <PRIncident />
 
       {/* Patient Details */}
-      <Section>
-        <Heading>
-          <HeadingPrimary
-            icon="fas fa-sticky-note"
-            text="Patient Details"
-            padding="0.6rem"
-          />
-        </Heading>
-
-        <ReportContainer>
-          <Render>
-            <Grid>
-              <ColumnOne>
-                <FieldData field="Forename" data="Forename" />
-                <FieldData field="Surname" data="Surname" />
-                <FieldData field="Date of Birth" data="Date of Birth" />
-                <FieldData field="Age (Years)" data="Age (Years)" />
-                <FieldData field="Age (Years)" data="age (Months)" />
-                <FieldData field="Gender" data="Gender" />
-                <FieldData field="NHS No." data="NHS No." />
-                <FieldData field="Ethnicity" data="Ethnicity" />
-                <FieldData field="Weight (kg)" data="Weight (kg)" />
-              </ColumnOne>
-
-              <ColumnTwo>
-                <FieldData field="Telephone" data="Telephone" />
-                <FieldData field="Address" data="Address" />
-                <FieldData
-                  field="Patient has allergies?"
-                  data="Patient has allergies?"
-                />
-                <FieldData field="Allergies" data="Allergies" />
-                <FieldData
-                  field="Patient takes medications?"
-                  data="Patient takes medications?"
-                />
-                <FieldData field="Medication" data="Medication" />
-              </ColumnTwo>
-
-              <ColumnThree>
-                <HeadingSecondary text="Next of Kin" />
-                <FieldData field="Forename" data="data" />
-                <FieldData field="Surname" data="data" />
-                <FieldData field="Relationship to Patient" data="data" />
-                <FieldData field="Contact Number" data="data" />
-                <HeadingSecondary text="Patient GP" />
-                <FieldData field="GP Surgery Name" data="data" />
-                <FieldData field="GP Address" data="data" />
-                <FieldData field="Other" data="data" />
-              </ColumnThree>
-            </Grid>
-          </Render>
-        </ReportContainer>
-      </Section>
+      <PRPatient />
 
       {/* Cardiovascular Assessment */}
       <Section>
@@ -701,7 +648,7 @@ export default function PatientReport() {
         </Render>
       </ReportContainer>
 
-      <ClinicalObservations />
+      <PRClinical />
     </Container>
   );
 }

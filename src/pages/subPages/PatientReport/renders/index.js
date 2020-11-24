@@ -1,5 +1,8 @@
-// Export: PRFirst
-export { default as PRFirst } from "./PRFirst/PRFirst.component";
+// Export: PRClinical
+export { default as PRClinical } from "./PRClinical/PRClinical.component";
 
-// Export: ClinicalObservations
-export { default as ClinicalObservations } from "./ClinicalObservations/ClinicalObservations.component";
+// Export: PRIncident
+export { default as PRIncident } from "./PRIncident/PRIncident.component";
+
+// Export: PRPatient
+export { default as PRPatient } from "./PRPatient/PRPatient.component";

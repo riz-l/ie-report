@@ -24,7 +24,7 @@ export const Render = styled.div`
 export const Grid = styled.div`
   display: -ms-grid;
   display: grid;
-  /* grid-gap: 10px; */
+  grid-gap: 10px;
   -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
@@ -47,9 +47,6 @@ export const ColumnOne = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
-
-  padding-left: 5px;
-  padding-right: 5px;
 `;
 
 // Element: ColumnTwo
@@ -68,9 +65,6 @@ export const ColumnTwo = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
-
-  padding-left: 5px;
-  padding-right: 5px;
 `;
 
 // Element: ColumnThree
@@ -89,9 +83,6 @@ export const ColumnThree = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
-
-  padding-left: 5px;
-  padding-right: 5px;
 `;
 
 // Element: Heading
