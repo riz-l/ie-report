@@ -11,24 +11,20 @@ import {
   Heading,
   Render,
   Section,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeading,
-  TableBody,
-  TableData,
-} from "./PRClinical.elements";
+} from "./PRCardiovascular.elements";
 
 // Import: Components
 import {
   FieldData,
   HeadingPrimary,
+  HeadingSecondary,
+  HeadingTertiary,
   Loader,
   ReportContainer,
 } from "../../../../../components";
 
-// Render: PRClinical
-export default function PRClinical() {
+// Render: PRCardiovascular
+export default function PRCardiovascular() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -58,43 +54,70 @@ export default function PRClinical() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Clinical Observations report
+  //#region sectionRender = Cardiovascular Assessment report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-file-medical-alt"
-            text="Clinical Observations"
+            icon="fas fa-sticky-note"
+            text="Cardiovascular Assessment"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeading>First Name</TableHeading>
-                  <TableHeading>Last Name</TableHeading>
-                  <TableHeading>Job Title</TableHeading>
-                </TableRow>
-              </TableHead>
+            {/* #TODO - Cardiac Assessment */}
 
-              <TableBody>
-                <TableRow>
-                  <TableData>Riz</TableData>
-                  <TableData>Layton</TableData>
-                  <TableData>Developer</TableData>
-                </TableRow>
-              </TableBody>
-            </Table>
+            <HeadingSecondary text="Stroke Assessment" />
+
+            <Grid>
+              <ColumnOne>
+                <HeadingTertiary text="Condition" marginBottom="0" />
+                <FieldData field="Suspected Stroke" data="Test Data" />
+                <FieldData field="Suspected TIA" data="Test Data" />
+                <FieldData field="BM Recorded" data="Test Data" />
+                <FieldData field="Referred to Hyper-Accute" data="Test Data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <HeadingTertiary text="FAST Assessment" marginBottom="0" />
+                <FieldData field="FAST Assessment Outcome" data="Test Data" />
+
+                <Grid>
+                  <ColumnOne>
+                    <FieldData field="Face" data="Test Data" />
+                  </ColumnOne>
+
+                  <ColumnTwo>
+                    <FieldData field="Side (Face)" data="Test Data" />
+                  </ColumnTwo>
+                </Grid>
+
+                <Grid>
+                  <ColumnOne>
+                    <FieldData field="Arms" data="Test Data" />
+                  </ColumnOne>
+
+                  <ColumnTwo>
+                    <FieldData field="Side (Arms)" data="Test Data" />
+                  </ColumnTwo>
+                </Grid>
+                <FieldData field="Speech" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="Witnessed Onset" data="Test Data" />
+                <FieldData field="Last time seen well" data="Test Data" />
+              </ColumnThree>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Clinical Observations report
+  //#endregion /sectionRender = Cardiovascular Assessment report
 
   return (
     <>
@@ -103,7 +126,7 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
@@ -121,14 +144,14 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Clinical Observations data for this Patient" />
+              <FieldData data="There is no Incident Information data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

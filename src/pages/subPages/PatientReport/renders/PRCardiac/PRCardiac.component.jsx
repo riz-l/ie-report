@@ -11,13 +11,7 @@ import {
   Heading,
   Render,
   Section,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeading,
-  TableBody,
-  TableData,
-} from "./PRClinical.elements";
+} from "./PRCardiac.elements";
 
 // Import: Components
 import {
@@ -27,8 +21,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: PRClinical
-export default function PRClinical() {
+// Render: PRCardiac
+export default function PRCardiac() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -58,43 +52,52 @@ export default function PRClinical() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Clinical Observations report
+  //#region sectionRender = Cardiac Arrest report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-file-medical-alt"
-            text="Clinical Observations"
+            text="Cardiac Arrest"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeading>First Name</TableHeading>
-                  <TableHeading>Last Name</TableHeading>
-                  <TableHeading>Job Title</TableHeading>
-                </TableRow>
-              </TableHead>
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Resus Attempted" data="Test Data" />
+                <FieldData field="Bystander CPR" data="Test Data" />
+                <FieldData field="Time Compressions Started" data="Test Data" />
+                <FieldData field="Public AED" data="Test Data" />
+                <FieldData
+                  field="Time of First Public AED Shock"
+                  data="Test Data"
+                />
+              </ColumnOne>
 
-              <TableBody>
-                <TableRow>
-                  <TableData>Riz</TableData>
-                  <TableData>Layton</TableData>
-                  <TableData>Developer</TableData>
-                </TableRow>
-              </TableBody>
-            </Table>
+              <ColumnTwo>
+                <FieldData field="First Monitored Rhythm" data="Test Data" />
+                <FieldData field="NWAS Shocks" data="Test Data" />
+                <FieldData field="Time of First NWAS Shock" data="Test Data" />
+                <FieldData field="ROSC Present at Handover" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData field="Time of First ROSC" data="Test Data" />
+                <FieldData field="Time of Subsequent ROSCs" data="Test Data" />
+                <FieldData field="Termination of Resus" data="Test Data" />
+                <FieldData field="Total No. of Shocks" data="Test Data" />
+              </ColumnThree>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Clinical Observations report
+  //#endregion /sectionRender = Cardiac Arrest report
 
   return (
     <>
@@ -103,7 +106,7 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
@@ -121,14 +124,14 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Clinical Observations data for this Patient" />
+              <FieldData data="There is no Incident Information data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -11,24 +11,19 @@ import {
   Heading,
   Render,
   Section,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeading,
-  TableBody,
-  TableData,
-} from "./PRClinical.elements";
+} from "./PRTransport.elements";
 
 // Import: Components
 import {
   FieldData,
   HeadingPrimary,
+  HeadingTertiary,
   Loader,
   ReportContainer,
 } from "../../../../../components";
 
-// Render: PRClinical
-export default function PRClinical() {
+// Render: PRTransport
+export default function PRTransport() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -58,43 +53,51 @@ export default function PRClinical() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Clinical Observations report
+  //#region sectionRender = Transport Options report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-file-medical-alt"
-            text="Clinical Observations"
+            text="Transport Options"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeading>First Name</TableHeading>
-                  <TableHeading>Last Name</TableHeading>
-                  <TableHeading>Job Title</TableHeading>
-                </TableRow>
-              </TableHead>
+            <Grid>
+              <ColumnOne>
+                <FieldData field="Receiving Location" data="Test Data" />
+                <FieldData field="Destination Name" data="Test Data" />
+                <FieldData field="Other Location" data="Test Data" />
+                <FieldData
+                  field="Patient Own Meds Transported"
+                  data="Test Data"
+                />
+              </ColumnOne>
 
-              <TableBody>
-                <TableRow>
-                  <TableData>Riz</TableData>
-                  <TableData>Layton</TableData>
-                  <TableData>Developer</TableData>
-                </TableRow>
-              </TableBody>
-            </Table>
+              <ColumnTwo>
+                <HeadingTertiary text="Hospital Pre-Alert" />
+                <FieldData field="Pre-Alert" data="Test Data" />
+                <FieldData field="Status" data="Test Data" />
+                <FieldData field="Reason" data="Test Data" />
+                <FieldData field="Other" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <HeadingTertiary text="Patients Mobility" />
+                <FieldData field="Scene to Ambulance" data="Test Data" />
+                <FieldData field="Ambulance to Hospital" data="Test Data" />
+              </ColumnThree>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Clinical Observations report
+  //#endregion /sectionRender = Transport Options report
 
   return (
     <>
@@ -103,7 +106,7 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
@@ -121,14 +124,14 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Clinical Observations data for this Patient" />
+              <FieldData data="There is no Incident Information data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

@@ -52,7 +52,7 @@ export default function PRIncident() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Incident Information Report
+  //#region sectionRender = Incident Information report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
@@ -172,7 +172,7 @@ export default function PRIncident() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Incident Information Report
+  //#endregion /sectionRender = Incident Information report
 
   return (
     <>

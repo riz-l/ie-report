@@ -11,24 +11,20 @@ import {
   Heading,
   Render,
   Section,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeading,
-  TableBody,
-  TableData,
-} from "./PRClinical.elements";
+} from "./PRTrauma.elements";
 
 // Import: Components
 import {
   FieldData,
   HeadingPrimary,
+  HeadingSecondary,
+  HeadingTertiary,
   Loader,
   ReportContainer,
 } from "../../../../../components";
 
-// Render: PRClinical
-export default function PRClinical() {
+// Render: PRTrauma
+export default function PRTrauma() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -58,43 +54,63 @@ export default function PRClinical() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Clinical Observations report
+  //#region sectionRender = Trauma Management report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-file-medical-alt"
-            text="Clinical Observations"
+            text="Trauma Management"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeading>First Name</TableHeading>
-                  <TableHeading>Last Name</TableHeading>
-                  <TableHeading>Job Title</TableHeading>
-                </TableRow>
-              </TableHead>
+            {/* #TODO - Skeletal Trauma */}
 
-              <TableBody>
-                <TableRow>
-                  <TableData>Riz</TableData>
-                  <TableData>Layton</TableData>
-                  <TableData>Developer</TableData>
-                </TableRow>
-              </TableBody>
-            </Table>
+            <HeadingSecondary text="Burns" marginBottom="0" />
+            <FieldData
+              field="Total &#37;"
+              data="Test Data"
+              marginBottom="2rem"
+            />
+
+            <Grid>
+              <ColumnOne>
+                <HeadingTertiary text="Head" marginBottom="0" />
+
+                <FieldData field="Thickness" data="Test Data" />
+                <FieldData field="&#37; Area" data="Test Data" />
+                <FieldData field="Time Dressing Applied" data="Test Data" />
+                <FieldData field="Time Cooling Applied" data="Test Data" />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <HeadingTertiary text="Torso" marginBottom="0" />
+
+                <FieldData field="Thickness" data="Test Data" />
+                <FieldData field="&#37; Area" data="Test Data" />
+                <FieldData field="Time Dressing Applied" data="Test Data" />
+                <FieldData field="Time Cooling Applied" data="Test Data" />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <HeadingTertiary text="Limbs" marginBottom="0" />
+
+                <FieldData field="Thickness" data="Test Data" />
+                <FieldData field="&#37; Area" data="Test Data" />
+                <FieldData field="Time Dressing Applied" data="Test Data" />
+                <FieldData field="Time Cooling Applied" data="Test Data" />
+              </ColumnThree>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Clinical Observations report
+  //#endregion /sectionRender = Trauma Management report
 
   return (
     <>
@@ -103,7 +119,7 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
@@ -121,14 +137,14 @@ export default function PRClinical() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Clinical Observations"
+              text="Incident Information"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Clinical Observations data for this Patient" />
+              <FieldData data="There is no Incident Information data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>
