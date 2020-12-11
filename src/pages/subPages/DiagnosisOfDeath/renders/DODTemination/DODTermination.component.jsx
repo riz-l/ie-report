@@ -11,7 +11,7 @@ import {
   Heading,
   Render,
   Section,
-} from "./DODFirst.elements";
+} from "./DODTermination.elements";
 
 // Import: Components
 import {
@@ -21,8 +21,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODFirst
-export default function DODFirst() {
+// Render: DODFourth
+export default function DODFourth() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -52,14 +52,14 @@ export default function DODFirst() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Diagnosis of Death Report
+  //#region sectionRender = Termination of Resuscitation... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="Diagnosis Of Death"
+            text="C. Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
             padding="0.6rem"
           />
         </Heading>
@@ -69,22 +69,48 @@ export default function DODFirst() {
             <Grid>
               <ColumnOne>
                 <FieldData
-                  field="Diagnosis of Death Timed At"
-                  data={patient.DoD_Time ? patient.DoD_Time : "Not recorded"}
+                  field="Continuous chest compressions"
+                  data={patient.DoD_Chest ? patient.DoD_Chest : "Not recorded"}
+                />
+                <FieldData
+                  field="Circulatory Access (IV or IO)"
+                  data={
+                    patient.DoD_Circulatory
+                      ? patient.DoD_Circulatory
+                      : "Not recorded"
+                  }
                 />
               </ColumnOne>
 
               <ColumnTwo>
                 <FieldData
-                  field="Privacy"
-                  data={patient.Privacy ? patient.Privacy : "Not recorded"}
+                  field="No palpable pulse"
+                  data={patient.DoD_Pulse ? patient.DoD_Pulse : "Not recorded"}
+                />
+                <FieldData
+                  field="20 minutes of Asystole. Printed ECG for &#62; 30 seconds"
+                  data={patient.DoD_ALS ? patient.DoD_ALS : "Not recorded"}
                 />
               </ColumnTwo>
 
               <ColumnThree>
                 <FieldData
-                  field="Diagnosis of Death Confirmed By"
-                  data={patient.Confirmed ? patient.Confirmed : "Not recorded"}
+                  field="Secured Airway (supraglottic or ET)"
+                  data={
+                    patient.DoD_Airway ? patient.DoD_Airway : "Not recorded"
+                  }
+                />
+                <FieldData
+                  field="Where appropriate, IV/IO admin of at least 4 x 1mg adrenaline and amiodarone"
+                  data={patient.DoD_Admin ? patient.DoD_Admin : "Not recorded"}
+                />
+                <FieldData
+                  field="No signs of respiration"
+                  data={
+                    patient.DoD_Respiration
+                      ? patient.DoD_Respiration
+                      : "Not recorded"
+                  }
                 />
               </ColumnThree>
             </Grid>
@@ -93,7 +119,7 @@ export default function DODFirst() {
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Diagnosis of Death Report
+  //#endregion /sectionRender = Termination of Resuscitation... Report
 
   return (
     <>
@@ -102,7 +128,7 @@ export default function DODFirst() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Diagnosis of Death"
+              text="C. Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
               padding="0.6rem"
             />
           </Heading>
@@ -120,14 +146,14 @@ export default function DODFirst() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="Diagnosis of Death"
+              text="C. Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Diagnosis of Death data for this Patient" />
+              <FieldData data="There is no Termination of Resuscitation... data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

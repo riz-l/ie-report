@@ -3,18 +3,27 @@ import React, { useState, useEffect } from "react";
 import { diagnosisOfDeath } from "../../../../../utils/axios";
 
 // Import: Elements
-import { Heading, Render, Section } from "./DODThird.elements";
+import {
+  ColumnOne,
+  ColumnTwo,
+  ColumnThree,
+  Grid,
+  Heading,
+  Render,
+  Section,
+} from "./DODFactors.elements";
 
 // Import: Components
 import {
   FieldData,
   HeadingPrimary,
+  HeadingTertiary,
   Loader,
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODThird
-export default function DODThird() {
+// Render: DODSecond
+export default function DODSecond() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,30 +53,50 @@ export default function DODThird() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Advance Decisions to Refuse... Report
+  //#region sectionRender = Factors to Confirm... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="B. Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
+            text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <FieldData
-              field="Decision"
-              data={patient.Decision ? patient.Decision : "Not recorded"}
-            />
+            <Grid>
+              <ColumnOne>
+                <FieldData
+                  field="&#62; 15 minutes since the onset of collapse"
+                  data={patient.DoD_Onset ? patient.DoD_Onset : "Not recorded"}
+                />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData
+                  field="Asystole for &#62; 30 seconds on the ECG monitor"
+                  data={patient.DoD_ECG ? patient.DoD_ECG : "Not recorded"}
+                />
+              </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData
+                  field="No effective CPR prior to arrival of ambulance"
+                  data={patient.DoD_CPR ? patient.DoD_CPR : "Not recorded"}
+                />
+              </ColumnThree>
+            </Grid>
+
+            <HeadingTertiary text="All of the above MUST be confirmed" />
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Advance Decisions to Refuse... Report
+  //#endregion /sectionRender = Factors to Confirm... Report
 
   return (
     <>
@@ -76,7 +105,7 @@ export default function DODThird() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="B. Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
+              text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
               padding="0.6rem"
             />
           </Heading>
@@ -94,14 +123,14 @@ export default function DODThird() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="B. Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
+              text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Advance Decisions to Refuse... data for this Patient" />
+              <FieldData data="There is no Factors to Confirm... data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>
