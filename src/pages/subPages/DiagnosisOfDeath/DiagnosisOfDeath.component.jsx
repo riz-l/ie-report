@@ -6,13 +6,13 @@ import { Container } from "./DiagnosisOfDeath.elements";
 
 // Import: Renders
 import {
-  DODFirst,
-  DODSecond,
-  DODThird,
-  DODFourth,
-  DODFifth,
-  DODSixth,
-  DODSeventh,
+  DODDiagnosis,
+  DODFactors,
+  DODAdvance,
+  DODTermination,
+  DODConditions,
+  DODExpected,
+  DODAttendance,
 } from "./renders";
 
 // SubPage: DiagnosisOfDeath
@@ -20,25 +20,25 @@ export default function DiagnosisOfDeath() {
   return (
     <Container>
       {/* Diagnosis of Death */}
-      <DODFirst />
+      <DODDiagnosis />
 
       {/* Factors to Confirm... */}
-      <DODSecond />
+      <DODFactors />
 
       {/* Advance Decisions to Refuse... */}
-      <DODThird />
+      <DODAdvance />
 
       {/* Termination of Resuscitation... */}
-      <DODFourth />
+      <DODTermination />
 
       {/* Conditions Unequivocally Associated... */}
-      <DODFifth />
+      <DODConditions />
 
       {/* Expected Death... */}
-      <DODSixth />
+      <DODExpected />
 
-      {/* Expected Death... */}
-      <DODSeventh />
+      {/* Expected Attendance... */}
+      <DODAttendance />
     </Container>
   );
 }

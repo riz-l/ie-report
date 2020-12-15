@@ -3,7 +3,14 @@ import React, { useState, useEffect } from "react";
 import { diagnosisOfDeath } from "../../../../../utils/axios";
 
 // Import: Elements
-import { Heading, Render, Section } from "./DODFifth.elements";
+import {
+  ColumnOne,
+  ColumnTwo,
+  Grid,
+  Heading,
+  Render,
+  Section,
+} from "./DODExpected.elements";
 
 // Import: Components
 import {
@@ -13,8 +20,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODFifth
-export default function DODFifth() {
+// Render: DODSixth
+export default function DODSixth() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -44,30 +51,47 @@ export default function DODFifth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Conditions Unequivocally Associated... Report
+  //#region sectionRender = Expected Death... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+            text="E. Expected Death Due to Illness or Pre-Existing Condition"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <FieldData
-              field="Condition"
-              data={patient.Condition ? patient.Condition : "Not recorded"}
-            />
+            <Grid>
+              <ColumnOne>
+                <FieldData
+                  field="Expected Death due to a terminal illness"
+                  data={
+                    patient.DoD_Terminal ? patient.DoD_Terminal : "Not recorded"
+                  }
+                />
+              </ColumnOne>
+
+              <ColumnTwo>
+                <FieldData
+                  field="Explanation"
+                  data={
+                    patient.Terminal_Illness
+                      ? patient.Terminal_Illness
+                      : "Not recorded"
+                  }
+                />
+              </ColumnTwo>
+            </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Conditions Unequivocally Associated... Report
+  //#endregion /sectionRender = Expected Death... Report
 
   return (
     <>
@@ -76,7 +100,7 @@ export default function DODFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+              text="E. Expected Death Due to Illness or Pre-Existing Condition"
               padding="0.6rem"
             />
           </Heading>
@@ -94,7 +118,7 @@ export default function DODFifth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+              text="E. Expected Death Due to Illness or Pre-Existing Condition"
               padding="0.6rem"
             />
           </Heading>

@@ -3,27 +3,18 @@ import React, { useState, useEffect } from "react";
 import { diagnosisOfDeath } from "../../../../../utils/axios";
 
 // Import: Elements
-import {
-  ColumnOne,
-  ColumnTwo,
-  ColumnThree,
-  Grid,
-  Heading,
-  Render,
-  Section,
-} from "./DODSecond.elements";
+import { Heading, Render, Section } from "./DODConditions.elements";
 
 // Import: Components
 import {
   FieldData,
   HeadingPrimary,
-  HeadingTertiary,
   Loader,
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODSecond
-export default function DODSecond() {
+// Render: DODFifth
+export default function DODFifth() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -53,50 +44,30 @@ export default function DODSecond() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Factors to Confirm... Report
+  //#region sectionRender = Conditions Unequivocally Associated... Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
+            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
             padding="0.6rem"
           />
         </Heading>
 
         <ReportContainer>
           <Render>
-            <Grid>
-              <ColumnOne>
-                <FieldData
-                  field="&#62; 15 minutes since the onset of collapse"
-                  data={patient.DoD_Onset ? patient.DoD_Onset : "Not recorded"}
-                />
-              </ColumnOne>
-
-              <ColumnTwo>
-                <FieldData
-                  field="Asystole for &#62; 30 seconds on the ECG monitor"
-                  data={patient.DoD_ECG ? patient.DoD_ECG : "Not recorded"}
-                />
-              </ColumnTwo>
-
-              <ColumnThree>
-                <FieldData
-                  field="No effective CPR prior to arrival of ambulance"
-                  data={patient.DoD_CPR ? patient.DoD_CPR : "Not recorded"}
-                />
-              </ColumnThree>
-            </Grid>
-
-            <HeadingTertiary text="All of the above MUST be confirmed" />
+            <FieldData
+              field="Condition"
+              data={patient.Condition ? patient.Condition : "Not recorded"}
+            />
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Factors to Confirm... Report
+  //#endregion /sectionRender = Conditions Unequivocally Associated... Report
 
   return (
     <>
@@ -105,7 +76,7 @@ export default function DODSecond() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
+              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
               padding="0.6rem"
             />
           </Heading>
@@ -123,14 +94,14 @@ export default function DODSecond() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
+              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Factors to Confirm... data for this Patient" />
+              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

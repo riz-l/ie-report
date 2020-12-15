@@ -6,11 +6,12 @@ import { diagnosisOfDeath } from "../../../../../utils/axios";
 import {
   ColumnOne,
   ColumnTwo,
+  ColumnThree,
   Grid,
   Heading,
   Render,
   Section,
-} from "./DODSixth.elements";
+} from "./DODDiagnosis.elements";
 
 // Import: Components
 import {
@@ -20,8 +21,8 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODSixth
-export default function DODSixth() {
+// Render: DODFirst
+export default function DODFirst() {
   // State = loading, sectionData
   const [loading, setLoading] = useState(true);
   const [sectionData, setSectionData] = useState([]);
@@ -51,14 +52,14 @@ export default function DODSixth() {
     getPatientData();
   }, []);
 
-  //#region sectionRender = Expected Death... Report
+  //#region sectionRender = Diagnosis of Death Report
   const sectionRender = sectionData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
         <Heading>
           <HeadingPrimary
             icon="fas fa-sticky-note"
-            text="E. Expected Death Due to Illness or Pre-Existing Condition"
+            text="Diagnosis Of Death"
             padding="0.6rem"
           />
         </Heading>
@@ -68,30 +69,31 @@ export default function DODSixth() {
             <Grid>
               <ColumnOne>
                 <FieldData
-                  field="Expected Death due to a terminal illness"
-                  data={
-                    patient.DoD_Terminal ? patient.DoD_Terminal : "Not recorded"
-                  }
+                  field="Diagnosis of Death Timed At"
+                  data={patient.DoD_Time ? patient.DoD_Time : "Not recorded"}
                 />
               </ColumnOne>
 
               <ColumnTwo>
                 <FieldData
-                  field="Explanation"
-                  data={
-                    patient.Terminal_Illness
-                      ? patient.Terminal_Illness
-                      : "Not recorded"
-                  }
+                  field="Privacy"
+                  data={patient.Privacy ? patient.Privacy : "Not recorded"}
                 />
               </ColumnTwo>
+
+              <ColumnThree>
+                <FieldData
+                  field="Diagnosis of Death Confirmed By"
+                  data={patient.Confirmed ? patient.Confirmed : "Not recorded"}
+                />
+              </ColumnThree>
             </Grid>
           </Render>
         </ReportContainer>
       </Section>
     </React.Fragment>
   ));
-  //#endregion /sectionRender = Expected Death... Report
+  //#endregion /sectionRender = Diagnosis of Death Report
 
   return (
     <>
@@ -100,7 +102,7 @@ export default function DODSixth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="E. Expected Death Due to Illness or Pre-Existing Condition"
+              text="Diagnosis of Death"
               padding="0.6rem"
             />
           </Heading>
@@ -118,14 +120,14 @@ export default function DODSixth() {
           <Heading>
             <HeadingPrimary
               icon="fas fa-file-medical-alt"
-              text="E. Expected Death Due to Illness or Pre-Existing Condition"
+              text="Diagnosis of Death"
               padding="0.6rem"
             />
           </Heading>
 
           <ReportContainer>
             <Render>
-              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
+              <FieldData data="There is no Diagnosis of Death data for this Patient" />
             </Render>
           </ReportContainer>
         </Section>

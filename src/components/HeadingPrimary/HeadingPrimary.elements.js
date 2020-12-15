@@ -14,7 +14,7 @@ export const Container = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   margin-left: 0;
   margin-right: 0;
   width: 100%;

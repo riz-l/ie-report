@@ -1,20 +1,20 @@
 // Export: DODFirst
-export { default as DODFirst } from "./DODFirst/DODFirst.component";
+export { default as DODDiagnosis } from "./DODDiagnosis/DODDiagnosis.component";
 
 // Export: DODSecond
-export { default as DODSecond } from "./DODSecond/DODSecond.component";
+export { default as DODFactors } from "./DODFactors/DODFactors.component";
 
 // Export: DODThird
-export { default as DODThird } from "./DODThird/DODThird.component";
+export { default as DODAdvance } from "./DODAdvance/DODAdvance.component";
 
 // Export: DODFourth
-export { default as DODFourth } from "./DODFourth/DODFourth.component";
+export { default as DODTermination } from "./DODTemination/DODTermination.component";
 
 // Export: DODFifth
-export { default as DODFifth } from "./DODFifth/DODFifth.component";
+export { default as DODConditions } from "./DODConditions/DODConditions.component";
 
 // Export: DODSixth
-export { default as DODSixth } from "./DODSixth/DODSixth.component";
+export { default as DODExpected } from "./DODExpected/DODExpected.component";
 
 // Export: DODSeventh
-export { default as DODSeventh } from "./DODSeventh/DODSeventh.component";
+export { default as DODAttendance } from "./DODAttendance/DODAttendance.component";

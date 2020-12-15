@@ -1,6 +1,3 @@
-// Export: Dropdown
-export { default as Dropdown } from "./Dropdown/Dropdown.component";
-
 // Export: FieldData
 export { default as FieldData } from "./FieldData/FieldData.component";
 

@@ -3,9 +3,11 @@ import styled from "styled-components/macro";
 
 // Element: Container
 export const Container = styled.div`
-  margin-bottom: 1rem;
+  height:100%;
+  margin-bottom: 0rem;
   padding-top: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  width:100%;
 `;

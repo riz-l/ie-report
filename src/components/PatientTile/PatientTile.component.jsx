@@ -2,18 +2,23 @@
 import React, { useState, useEffect } from "react";
 import { patientDetails } from "../../utils/axios";
 
+// Import: Assets
+import { ReactComponent as PatientIcon } from "../../assets/img/icons/patient.svg";
+
 // Import: Elements
 import {
   ColumnOne,
   ColumnTwo,
   ColumnThree,
+  ColumnFour,
   Container,
   Grid,
   Heading,
-  HorizontalRule,
   PatientHeading,
+  NameContainer,
   Render,
   Section,
+  PatientIconcontainer,
 } from "./PatientTile.elements";
 
 // Import: Components
@@ -23,6 +28,7 @@ import { FieldData, HeadingPrimary, Loader, ReportContainer } from "../index";
 export default function PatientTile() {
   // State = patientData, loading
   const [patientData, setPatientData] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
   // Patient Master_ePR_ID
@@ -73,17 +79,23 @@ export default function PatientTile() {
           </Render>
         ) : (
           <Render>
-            <PatientHeading>
-              <h2>
-                {patient.PD_Firstname ? patient.PD_Firstname : "Firstname"}
-              </h2>
-              <h2>{patient.PD_Surname ? patient.PD_Surname : "Surname"}</h2>
-            </PatientHeading>
-
-            <HorizontalRule />
 
             <Grid>
               <ColumnOne>
+               <NameContainer>
+               <PatientIconcontainer>
+                 <PatientIcon />
+               </PatientIconcontainer>
+                <PatientHeading>
+                  <h2>
+                    {patient.PD_Firstname ? patient.PD_Firstname : "Firstname"}
+                  </h2>
+                  <h2>{patient.PD_Surname ? patient.PD_Surname : "Surname"}</h2>
+                </PatientHeading>
+               </NameContainer>
+              </ColumnOne>
+              
+              <ColumnTwo>
                 <FieldData
                   field="Date of Birth"
                   data={patient.PD_DOB ? patient.PD_DOB : "Not Recorded"}
@@ -100,9 +112,9 @@ export default function PatientTile() {
                     patient.PD_Age_Mths ? patient.PD_Age_Mths : "Not Recorded"
                   }
                 />
-              </ColumnOne>
+              </ColumnTwo>
 
-              <ColumnTwo>
+              <ColumnThree>
                 <FieldData
                   field="Gender"
                   data={patient.PD_Gender ? patient.PD_Gender : "Not Recorded"}
@@ -117,9 +129,9 @@ export default function PatientTile() {
                   field="Weight (kg)"
                   data={patient.PD_Weight ? patient.PD_Weight : "Not Recorded"}
                 />
-              </ColumnTwo>
+              </ColumnThree>
 
-              <ColumnThree>
+              <ColumnFour>
                 <FieldData
                   field="NHS No."
                   data={patient.PD_Nhs_No ? patient.PD_Nhs_No : "Not Recorded"}
@@ -154,7 +166,7 @@ export default function PatientTile() {
                     )
                   }
                 />
-              </ColumnThree>
+              </ColumnFour>
             </Grid>
           </Render>
         )}
