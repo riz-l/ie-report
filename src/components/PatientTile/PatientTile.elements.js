@@ -73,10 +73,10 @@ export const PatientIconcontainer = styled.div`
   background: #2a2a2e;
   border-radius: 50%;
   margin-bottom: 1rem;
-  padding-top: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
+  padding-top: 1.3rem;
+  padding-right: 1.3rem;
+  padding-bottom: 1.3rem;
+  padding-left: 1.3rem;
 
   & svg {
   height: 65px;
@@ -173,13 +173,14 @@ export const ColumnFour = styled.div`
   flex-direction: column;
   -ms-grid-column: 4;
   grid-column: 4;
-  height: 90%;
+  height: 100%;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: auto;
   margin-top: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
+  padding-top: .8rem;
   width: 100%;
 `;
 
