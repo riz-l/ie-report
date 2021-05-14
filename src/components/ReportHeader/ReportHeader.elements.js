@@ -12,11 +12,13 @@ export const Container = styled.div`
   display: -ms-flexbox;
   display: flex;
   height: auto;
+  overflow-x: auto;
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
-  width: 100%;
+  max-width: 100%;
   min-width: 100%;
+  width: 100%;
 `;
 
 // Styled: Options
@@ -31,6 +33,7 @@ export const Options = styled.ul`
   -webkit-box-pack: flex-start;
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
+  max-width: 100%;
   width: 100%;
 
   & a {

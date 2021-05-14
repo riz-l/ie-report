@@ -1,6 +1,5 @@
 // Import: Dependencies
-import React, { useState, useEffect } from "react";
-import { patientDetails } from "../../utils/axios";
+import React from "react";
 
 // Import: Assets
 import { ReactComponent as PatientIcon } from "../../assets/img/icons/patient.svg";
@@ -19,83 +18,54 @@ import {
   Render,
   Section,
   PatientIconcontainer,
+  PTWrapper,
+  Wrapper,
 } from "./PatientTile.elements";
 
 // Import: Components
 import { FieldData, HeadingPrimary, Loader, ReportContainer } from "../index";
 
 // Component: PatientTile
-export default function PatientTile() {
-  // State = patientData, loading
-  const [patientData, setPatientData] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-
-  // Patient Master_ePR_ID
-  const patientId = "a6ef1fb3-2482-4ee3-b558-3d084d90247d";
-
-  // Fetch Patient Data
-  function getPatientData() {
-    setLoading(true);
-
-    patientDetails
-      .get(`/${patientId}`, {})
-      .then((res) => {
-        const data = res.data;
-        console.log("Patient Data: ", data);
-        setPatientData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  }
-
-  // Run getPatientData on load
-  useEffect(() => {
-    getPatientData();
-  }, []);
-
+export default function PatientTile({
+  selectedPatient,
+  isLoading,
+  patientDetailsData,
+}) {
   //#region patientRender = Patient Demographics
-  const patientRender = patientData.map((patient) => (
+  const patientRender = patientDetailsData.map((patient) => (
     <Section key={patient.id}>
-      <Heading>
-        <HeadingPrimary
-          icon="fas fa-hospital-user"
-          text="Patient Demographics"
-          padding="0.6rem"
-        />
-      </Heading>
+      <PTWrapper>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-hospital-user"
+            text="Patient Demographics"
+            padding="0.6rem"
+          />
+        </Heading>
+        <Render>
+          <Grid>
+            <ColumnOne>
+              <Wrapper>
+                <NameContainer>
+                  <PatientIconcontainer>
+                    <PatientIcon />
+                  </PatientIconcontainer>
+                  <PatientHeading>
+                    <h2>
+                      {patient.PD_Firstname
+                        ? patient.PD_Firstname
+                        : "Firstname"}
+                    </h2>
+                    <h2>
+                      {patient.PD_Surname ? patient.PD_Surname : "Surname"}
+                    </h2>
+                  </PatientHeading>
+                </NameContainer>
+              </Wrapper>
+            </ColumnOne>
 
-      <ReportContainer>
-        {loading ? (
-          <Render>
-            <Grid>
-              <ColumnTwo>
-                <Loader background="#ebebeb" />
-              </ColumnTwo>
-            </Grid>
-          </Render>
-        ) : (
-          <Render>
-
-            <Grid>
-              <ColumnOne>
-               <NameContainer>
-               <PatientIconcontainer>
-                 <PatientIcon />
-               </PatientIconcontainer>
-                <PatientHeading>
-                  <h2>
-                    {patient.PD_Firstname ? patient.PD_Firstname : "Firstname"}
-                  </h2>
-                  <h2>{patient.PD_Surname ? patient.PD_Surname : "Surname"}</h2>
-                </PatientHeading>
-               </NameContainer>
-              </ColumnOne>
-              
-              <ColumnTwo>
+            <ColumnTwo>
+              <Wrapper>
                 <FieldData
                   field="Date of Birth"
                   data={patient.PD_DOB ? patient.PD_DOB : "Not Recorded"}
@@ -112,13 +82,15 @@ export default function PatientTile() {
                     patient.PD_Age_Mths ? patient.PD_Age_Mths : "Not Recorded"
                   }
                 />
-              </ColumnTwo>
-
-              <ColumnThree>
                 <FieldData
                   field="Gender"
                   data={patient.PD_Gender ? patient.PD_Gender : "Not Recorded"}
                 />
+              </Wrapper>
+            </ColumnTwo>
+
+            <ColumnThree>
+              <Wrapper>
                 <FieldData
                   field="Ethnicity"
                   data={
@@ -129,13 +101,15 @@ export default function PatientTile() {
                   field="Weight (kg)"
                   data={patient.PD_Weight ? patient.PD_Weight : "Not Recorded"}
                 />
-              </ColumnThree>
-
-              <ColumnFour>
                 <FieldData
                   field="NHS No."
                   data={patient.PD_Nhs_No ? patient.PD_Nhs_No : "Not Recorded"}
                 />
+              </Wrapper>
+            </ColumnThree>
+
+            <ColumnFour>
+              <Wrapper>
                 <FieldData
                   field="Telephone"
                   data={
@@ -166,14 +140,28 @@ export default function PatientTile() {
                     )
                   }
                 />
-              </ColumnFour>
-            </Grid>
-          </Render>
-        )}
-      </ReportContainer>
+              </Wrapper>
+            </ColumnFour>
+          </Grid>
+        </Render>
+      </PTWrapper>
     </Section>
   ));
   //#endregion /patientRender = Patient Demographics
+
+  if (isLoading && selectedPatient !== null) {
+    return (
+      <Container>
+        <Section>
+          <ReportContainer>
+            <Render>
+              <Loader background="#FFFFFF" />
+            </Render>
+          </ReportContainer>
+        </Section>
+      </Container>
+    );
+  }
 
   return <Container>{patientRender}</Container>;
 }

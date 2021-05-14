@@ -10,7 +10,7 @@ export default function Header() {
     <Container>
       <Wrapper>
         <Logo>
-           <span>Lorenzo Report</span>
+          <span>Integration Report</span>
         </Logo>
       </Wrapper>
     </Container>

@@ -44,4 +44,10 @@ export const Wrapper = styled.div`
     color: #414141;
     font-size: 1.6rem;
   }
+
+  }
+  @media screen and (max-width: 300px) {
+    & h2 {
+      font-size: .8rem;
+    }
 `;

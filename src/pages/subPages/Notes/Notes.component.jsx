@@ -6,47 +6,83 @@ import { Container } from "./Notes.elements";
 
 // Import: Renders
 import {
-  NFirst,
-  NSecond,
-  NThird,
-  NFourth,
-  NFifth,
-  NSixth,
-  NSeventh,
-  NEigth,
-  NNinth,
+  NPresenting,
+  NHistory,
+  NMedical,
+  NSocial,
+  NFamily,
+  NExamination,
+  NImpression,
+  NPlan,
+  NAdditional,
 } from "./renders";
 
 // SubPage: Notes
-export default function Notes() {
+export default function Notes({ isLoading, selectedPatient, notesData }) {
   return (
     <Container>
       {/* Presenting Complaint */}
-      <NFirst />
+      <NPresenting
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* History of Presenting Complaint */}
-      <NSecond />
+      <NHistory
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Previous Medical History */}
-      <NThird />
+      <NMedical
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Social History */}
-      <NFourth />
+      <NSocial
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Family History */}
-      <NFifth />
+      <NFamily
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* On Examination */}
-      <NSixth />
+      <NExamination
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Impression */}
-      <NSeventh />
+      <NImpression
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Plan / Treatment */}
-      <NEigth />
+      <NPlan
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
 
       {/* Additional Information */}
-      <NNinth />
+      <NAdditional
+        isLoading={isLoading}
+        notesData={notesData}
+        selectedPatient={selectedPatient}
+      />
     </Container>
   );
 }

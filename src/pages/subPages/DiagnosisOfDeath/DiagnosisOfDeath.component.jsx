@@ -16,29 +16,61 @@ import {
 } from "./renders";
 
 // SubPage: DiagnosisOfDeath
-export default function DiagnosisOfDeath() {
+export default function DiagnosisOfDeath({
+  isLoading,
+  selectedPatient,
+  diagnosisOfDeathData,
+}) {
   return (
     <Container>
       {/* Diagnosis of Death */}
-      <DODDiagnosis />
+      <DODDiagnosis
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Factors to Confirm... */}
-      <DODFactors />
+      <DODFactors
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Advance Decisions to Refuse... */}
-      <DODAdvance />
+      <DODAdvance
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Termination of Resuscitation... */}
-      <DODTermination />
+      <DODTermination
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Conditions Unequivocally Associated... */}
-      <DODConditions />
+      <DODConditions
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Expected Death... */}
-      <DODExpected />
+      <DODExpected
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
 
       {/* Expected Attendance... */}
-      <DODAttendance />
+      <DODAttendance
+        isLoading={isLoading}
+        selectedPatient={selectedPatient}
+        diagnosisOfDeathData={diagnosisOfDeathData}
+      />
     </Container>
   );
 }

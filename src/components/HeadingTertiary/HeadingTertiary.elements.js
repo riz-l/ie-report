@@ -17,6 +17,7 @@ export const Container = styled.div`
   margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
+  max-width: 100%;
   width: 100%;
 `;
 
@@ -37,5 +38,12 @@ export const Wrapper = styled.div`
     color: #414141;
     font-size: 1.2rem;
     padding-bottom: 0.4rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    & h4 {
+      font-size: 1rem;
+      padding-bottom: 1.2rem;
+    }
   }
 `;

@@ -1,6 +1,5 @@
 // Import: Dependencies
-import React, { useState, useEffect } from "react";
-import { diagnosisOfDeath } from "../../../../../utils/axios";
+import React from "react";
 
 // Import: Elements
 import {
@@ -20,49 +19,16 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODSixth
-export default function DODSixth() {
-  // State = loading, sectionData
-  const [loading, setLoading] = useState(true);
-  const [sectionData, setSectionData] = useState([]);
-
-  // Patient Master_ePR_ID
-  const patientId = "282e3dbb-a766-4185-8343-45e4e12d3587";
-
-  // Fetch Patient data from OneResponse API
-  function getPatientData() {
-    setLoading(true);
-
-    diagnosisOfDeath
-      .get(`/${patientId}`, {})
-      .then((res) => {
-        const data = res.data;
-        setSectionData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  }
-
-  // Run getPatientData on load
-  useEffect(() => {
-    getPatientData();
-  }, []);
-
+// Render: DODExpected
+export default function DODExpected({
+  selectedPatient,
+  isLoading,
+  diagnosisOfDeathData,
+}) {
   //#region sectionRender = Expected Death... Report
-  const sectionRender = sectionData.map((patient) => (
+  const sectionRender = diagnosisOfDeathData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
-        <Heading>
-          <HeadingPrimary
-            icon="fas fa-sticky-note"
-            text="E. Expected Death Due to Illness or Pre-Existing Condition"
-            padding="0.6rem"
-          />
-        </Heading>
-
         <ReportContainer>
           <Render>
             <Grid>
@@ -93,43 +59,44 @@ export default function DODSixth() {
   ));
   //#endregion /sectionRender = Expected Death... Report
 
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
+      <Section>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-file-medical-alt"
+            text="E. Expected Death Due to Illness or Pre-Existing Condition"
+            padding="0.6rem"
+          />
+        </Heading>
+
+        <ReportContainer>
+          <Render>
+            <Loader background="#3a3a40" />
+          </Render>
+        </ReportContainer>
+      </Section>
+    );
+  }
   return (
-    <>
-      {loading ? (
-        <Section>
-          <Heading>
-            <HeadingPrimary
-              icon="fas fa-file-medical-alt"
-              text="E. Expected Death Due to Illness or Pre-Existing Condition"
-              padding="0.6rem"
-            />
-          </Heading>
-
-          <ReportContainer>
-            <Render>
-              <Loader background="#3a3a40" />
-            </Render>
-          </ReportContainer>
-        </Section>
-      ) : sectionData && sectionData.length > 0 ? (
-        sectionRender
-      ) : (
-        <Section>
-          <Heading>
-            <HeadingPrimary
-              icon="fas fa-file-medical-alt"
-              text="E. Expected Death Due to Illness or Pre-Existing Condition"
-              padding="0.6rem"
-            />
-          </Heading>
-
-          <ReportContainer>
-            <Render>
-              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
-            </Render>
-          </ReportContainer>
-        </Section>
-      )}
-    </>
+    <Section>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="E. Expected Death Due to Illness or Pre-Existing Condition"
+          padding="0.6rem"
+        />
+      </Heading>
+      <ReportContainer>
+        <Render>
+          {diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            sectionRender
+          ) : (
+            <FieldData data="There is no Expected Death data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Section>
   );
 }

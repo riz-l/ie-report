@@ -1,26 +1,26 @@
 // Export: NFirst
-export { default as NFirst } from "./NFirst/NFirst.component";
+export { default as NPresenting } from "./NPresenting/NPresenting.component";
 
 // Export: NSecond
-export { default as NSecond } from "./NSecond/NSecond.component";
+export { default as NHistory } from "./NHistory/NHistorycomponent";
 
 // Export: NThird
-export { default as NThird } from "./NThird/NThird.component";
+export { default as NMedical } from "./NMedical/NMedical.component";
 
 // Export: NFourth
-export { default as NFourth } from "./NFourth/NFourth.component";
+export { default as NSocial } from "./NSocial/NSocial.component";
 
 // Export: NFifth
-export { default as NFifth } from "./NFifth/NFifth.component";
+export { default as NFamily } from "./NFamily/NFamily.component";
 
 // Export: NSixth
-export { default as NSixth } from "./NSixth/NSixth.component";
+export { default as NExamination } from "./NExamination/NExamination.component";
 
 // Export: NSeventh
-export { default as NSeventh } from "./NSeventh/NSeventh.component";
+export { default as NImpression } from "./NImpression/NImpression.component";
 
 // Export: NEigth
-export { default as NEigth } from "./NEigth/NEigth.component";
+export { default as NPlan } from "./NPlan/NPlan.component";
 
 // Export: NNinth
-export { default as NNinth } from "./NNinth/NNinth.component";
+export { default as NAdditional } from "./NAdditional/NAditional.component";

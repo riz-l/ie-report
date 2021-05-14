@@ -2,18 +2,28 @@
 import React from "react";
 
 // Import: Elements
-import { Container, Data, Field, Wrapper } from "./FieldData.elements";
+import {
+  Container,
+  Data,
+  Field,
+  Wrapper,
+  TylerSpan,
+} from "./FieldData.elements";
 
 // Element: FieldData
 export default function FieldData({
+  backgroundColor,
   data,
   field,
   fieldFontWeight,
   fieldLetterSpacing,
   fieldMarginBottom,
   fieldMinHeight,
+  fieldTextAlign,
   fieldTextTransform,
+  fieldWidth,
   fontSize,
+  justifyContent,
   margin,
   marginTop,
   marginRight,
@@ -24,12 +34,14 @@ export default function FieldData({
   paddingRight,
   paddingBottom,
   paddingLeft,
-  fieldWidth,
+  wordWrap,
 }) {
   return (
     <Container
       style={{
+        backgroundcolor: `${backgroundColor}`,
         fontSize: `${fontSize}`,
+        justifyContent: `${justifyContent}`,
         margin: `${margin}`,
         marginTop: `${marginTop}`,
         marginRight: `${marginRight}`,
@@ -45,17 +57,19 @@ export default function FieldData({
       <Wrapper>
         <Field
           style={{
-            marginBottom: `${fieldMarginBottom}`,
+            fieldWidth: `${fieldWidth}`,
             fontWeight: `${fieldFontWeight}`,
             letterSpacing: `${fieldLetterSpacing}`,
+            marginBottom: `${fieldMarginBottom}`,
             minHeight: `${fieldMinHeight}`,
+            textAlign: `${fieldTextAlign}`,
             textTransform: `${fieldTextTransform}`,
-            width: `${fieldWidth}`,
+            wordWrap: `${wordWrap}`,
           }}
         >
-          {field}
+          <TylerSpan>{field}</TylerSpan>
         </Field>
-        <Data>{data}</Data>
+        <Data style={{ textAlign: `${fieldTextAlign}` }}>{data}</Data>
       </Wrapper>
     </Container>
   );

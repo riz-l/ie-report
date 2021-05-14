@@ -1,6 +1,5 @@
 // Import: Dependencies
-import React, { useState, useEffect } from "react";
-import { diagnosisOfDeath } from "../../../../../utils/axios";
+import React from "react";
 
 // Import: Elements
 import { Heading, Render, Section } from "./DODConditions.elements";
@@ -13,49 +12,16 @@ import {
   ReportContainer,
 } from "../../../../../components";
 
-// Render: DODFifth
-export default function DODFifth() {
-  // State = loading, sectionData
-  const [loading, setLoading] = useState(true);
-  const [sectionData, setSectionData] = useState([]);
-
-  // Patient Master_ePR_ID
-  const patientId = "282e3dbb-a766-4185-8343-45e4e12d3587";
-
-  // Fetch Patient data from OneResponse API
-  function getPatientData() {
-    setLoading(true);
-
-    diagnosisOfDeath
-      .get(`/${patientId}`, {})
-      .then((res) => {
-        const data = res.data;
-        setSectionData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  }
-
-  // Run getPatientData on load
-  useEffect(() => {
-    getPatientData();
-  }, []);
-
+// Render: DODconditions
+export default function DODConditions({
+  selectedPatient,
+  isLoading,
+  diagnosisOfDeathData,
+}) {
   //#region sectionRender = Conditions Unequivocally Associated... Report
-  const sectionRender = sectionData.map((patient) => (
+  const sectionRender = diagnosisOfDeathData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Section>
-        <Heading>
-          <HeadingPrimary
-            icon="fas fa-sticky-note"
-            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
-            padding="0.6rem"
-          />
-        </Heading>
-
         <ReportContainer>
           <Render>
             <FieldData
@@ -69,43 +35,44 @@ export default function DODFifth() {
   ));
   //#endregion /sectionRender = Conditions Unequivocally Associated... Report
 
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
+      <Section>
+        <Heading>
+          <HeadingPrimary
+            icon="fas fa-file-medical-alt"
+            text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing)"
+            padding="0.6rem"
+          />
+        </Heading>
+
+        <ReportContainer>
+          <Render>
+            <Loader background="#3a3a40" />
+          </Render>
+        </ReportContainer>
+      </Section>
+    );
+  }
   return (
-    <>
-      {loading ? (
-        <Section>
-          <Heading>
-            <HeadingPrimary
-              icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
-              padding="0.6rem"
-            />
-          </Heading>
-
-          <ReportContainer>
-            <Render>
-              <Loader background="#3a3a40" />
-            </Render>
-          </ReportContainer>
-        </Section>
-      ) : sectionData && sectionData.length > 0 ? (
-        sectionRender
-      ) : (
-        <Section>
-          <Heading>
-            <HeadingPrimary
-              icon="fas fa-file-medical-alt"
-              text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
-              padding="0.6rem"
-            />
-          </Heading>
-
-          <ReportContainer>
-            <Render>
-              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
-            </Render>
-          </ReportContainer>
-        </Section>
-      )}
-    </>
+    <Section>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+          padding="0.6rem"
+        />
+      </Heading>
+      <ReportContainer>
+        <Render>
+          {diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            sectionRender
+          ) : (
+            <FieldData data="There is no Conditions data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Section>
   );
 }

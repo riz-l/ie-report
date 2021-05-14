@@ -6,9 +6,10 @@ export const Container = styled.header`
   background: #2a2a2e;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
   height: 55px;
+  max-width: 100%;
   min-height: 55px;
-  width: 100%;
   min-width: 100%;
+  width: 100%;
 `;
 
 // Element: Wrapper
@@ -64,8 +65,8 @@ export const DropdownButton = styled.div`
   & svg {
     fill: #ebebeb;
     height: 30px;
-    width: 30px;
     transition: fill 150ms linear;
+    width: 30px;
 
     &:hover {
       fill: #ffffff;

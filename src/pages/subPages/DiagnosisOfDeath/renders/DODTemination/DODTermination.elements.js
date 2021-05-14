@@ -29,6 +29,19 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
   width: 100%;
+
+  @ @media screen and (max-width: 768px) {
+    -ms-grid-columns: 50% 50%;
+    grid-template-columns: 50% 50%;
+    -ms-grid-rows: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+  @media screen and (max-width: 400px) {
+    -ms-grid-columns: 100%;
+    grid-template-columns: 100%;
+    -ms-grid-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 `;
 
 // Element: ColumnOne
@@ -47,6 +60,13 @@ export const ColumnOne = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
+
+  @media screen and (max-width: 400px) {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
 `;
 
 // Element: ColumnTwo
@@ -65,6 +85,13 @@ export const ColumnTwo = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
+
+  @media screen and (max-width: 400px) {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
 `;
 
 // Element: ColumnThree
@@ -83,6 +110,20 @@ export const ColumnThree = styled.div`
   -ms-flex-pack: flex-start;
   justify-content: flex-start;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+
+  @media screen and (max-width: 400px) {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 3;
+    grid-row: 3;
+  }
 `;
 
 // Element: Heading
